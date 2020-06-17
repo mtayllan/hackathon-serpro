@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class Organization < ApplicationRecord
   has_one :address, dependent: :destroy
+  has_many_attached :images
 
   enum kind: {
     public_hospital: 0,
