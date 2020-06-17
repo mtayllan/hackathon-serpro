@@ -2,7 +2,7 @@ class Dashboard::OrganizationUsersController < ApplicationController
   before_action :set_dashboard_organization_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @organization_users = current_organization_user.organization.users
+    @organization_users = current_organization_user.organization.organization_users
   end
 
   def show
@@ -50,6 +50,6 @@ class Dashboard::OrganizationUsersController < ApplicationController
     end
 
     def dashboard_organization_user_params
-      params.fetch(:dashboard_organization_user, {})
+      params.require(:dashboard_organization_user).permit(:email, :password, :password_confirmation)
     end
 end
