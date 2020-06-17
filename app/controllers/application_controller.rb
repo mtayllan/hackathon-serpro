@@ -1,9 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-  layout 'dashboard'
-  def index
-
-  end
-
-  def login
-  end
+  def index; end
 end
