@@ -1,0 +1,47 @@
+<h1 class="h3 mb-2 text-gray-800">Médicos</h1>
+<p class="mb-4">Aqui você pode visualizar e alterar os médicos da sua organização.</p>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <div class="row align-items-center">
+      <div class="col">
+        <h5 class="m-0 font-weight-bold text-primary">Listagem de Médicos</h5>
+      </div>
+      <div class="col text-right">
+        <%= link_to 'Novo médico', new_dashboard_medic_path, class: 'btn btn-sm btn-primary' %>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table id="medics-datatable" class="w-100" data-source="<%= dashboard_medics_path(user: current_organization_user, format: :json) %>">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(() => {
+    $('#medics-datatable').dataTable({
+      'processing': true,
+      'serverSide': true,
+      'ajax': {
+        'url': $('#medics-datatable').data('source')
+      },
+      'pagingType': 'full_numbers',
+      'columns': [
+        { 'data': 'id' },
+        { 'data': 'name' },
+        { 'data': 'actions' }
+      ]
+    });
+  });
+</script>

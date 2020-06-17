@@ -8,3 +8,5 @@ Style/HashTransformValues:
   Enabled: true
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+Naming/AccessorMethodName:
+  Enabled: false
