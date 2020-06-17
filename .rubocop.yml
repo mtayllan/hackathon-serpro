@@ -6,3 +6,5 @@ Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues:
   Enabled: true
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
