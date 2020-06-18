@@ -1,0 +1,2 @@
+module Dashboard::OrganizationUsersHelper
+end

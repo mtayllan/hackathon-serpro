@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     resources :medics, except: [:show]
     resource :organization, only: %i[edit update]
     resources :contacts, except: [:show]
+    resources :organization_users, except: [:show]
   end
 end
