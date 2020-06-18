@@ -1,6 +1,10 @@
-<h1>Editing Dashboard Organization User</h1>
-
-<%= render 'form', organization_user: @organization_user %>
-
-<%= link_to 'Show', @organization_user %> |
-<%= link_to 'Back', dashboard_organization_users_path %>
+<h1 class="h3 mb-2 text-gray-800">Editar Usuário</h1>
+<p class="mb-4">Atualize os dado do usuário selecionado</p>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Formulário de Usuário</h6>
+  </div>
+  <div class="card-body">
+    <%= render partial: 'form' %>
+  </div>
+</div>
