@@ -4,6 +4,7 @@ class Dashboard::OrganizationsController < DashboardController
   def edit
     @organization = current_user.organization
     @organization.build_address if @organization.address.nil?
+    @organization.build_organization_setting if @organization.setting.nil?
   end
 
   def update
@@ -22,7 +23,8 @@ class Dashboard::OrganizationsController < DashboardController
     params.require(:organization).permit(
       :name, :kind, :cnes, :covid_attendance, :cnpj,
       address_attributes: %i[city street number zipcode number
-                             state neighborhood]
+                             state neighborhood],
+      organization_setting_attributes: %i[interval_id]
     )
   end
 end
