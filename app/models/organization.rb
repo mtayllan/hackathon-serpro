@@ -8,7 +8,8 @@ class Organization < ApplicationRecord
   has_many :contacts, dependent: :destroy
   has_many_attached :images
 
-  accept_nested_fields_for :address, :organization_setting, update_only: true
+  accepts_nested_attributes_for :address, :organization_setting,
+                                update_only: true
 
   enum kind: {
     public_hospital: 0,

@@ -23,7 +23,8 @@ class Dashboard::OrganizationsController < DashboardController
     params.require(:organization).permit(
       :name, :kind, :cnes, :covid_attendance, :cnpj,
       address_attributes: %i[city street number zipcode number
-                             state neighborhood]
+                             state neighborhood],
+      organization_setting_attributes: %i[interval_id]
     )
   end
 end
