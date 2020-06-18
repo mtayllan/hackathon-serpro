@@ -1,0 +1,70 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <div class="sidebar-brand-icon rotate-n-15">
+      <i class="fas fa-laugh-wink"></i>
+    </div>
+    <div class="sidebar-brand-text mx-3">Mind</div>
+  </a>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0">
+
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item">
+    <%= link_to dashboard_path, class: 'nav-link' do %>
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Início</span>
+    <% end %>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Recursos
+  </div>
+
+  <li class="nav-item">
+    <%= link_to dashboard_medics_path, class: 'nav-link' do %>
+      <i class="fas fa-fw fa-chart-area"></i>
+      <span>Médicos</span>
+    <% end %>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Configurações
+  </div>
+
+  <!-- Nav Item - Charts -->
+  <li class="nav-item">
+    <%= link_to edit_dashboard_organization_path, class: 'nav-link' do %>
+      <i class="fas fa-fw fa-chart-area"></i>
+      <span>Dados da organização</span>
+    <% end %>
+  </li>
+
+  <hr class="sidebar-divider">
+
+  <li class="nav-item">
+    <%= link_to destroy_organization_user_session_path, method: :delete, class: 'nav-link' do %>
+      <i class="fas fa-fw fa-chart-area"></i>
+      <span>Sair</span>
+    <% end %>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block">
+
+  <!-- Sidebar Toggler (Sidebar) -->
+  <div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+  </div>
+
+</ul>
