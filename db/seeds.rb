@@ -47,3 +47,32 @@ end
     medic_id: rand(1..10)
   )
 end
+
+10.times do
+  HealthInsurer.create(
+    name: Faker::Company.name,
+    description: Faker::Lorem.sentence
+  )
+end
+
+10.times do
+  HealthPlan.create(
+    name: Faker::Company.industry,
+    description: Faker::Lorem.sentence,
+    health_insurer_id: rand(1..10)
+  )
+end
+
+10.times do
+  HealthPlansExpertise.create(
+    health_plan_id: rand(1..10),
+    expertise_id: rand(1..10)
+  )
+end
+
+10.times do
+  OrganizationHealthPlansExpertise.create(
+    organization_id: rand(1..10),
+    health_plans_expertise_id: rand(1..10)
+  )
+end
