@@ -22,11 +22,28 @@ end
   OrganizationUser.create(
     email: Faker::Internet.email,
     organization_id: rand(1..10),
-    password: "qwe123",
-    password_confirmation: "qwe123"
+    password: 'qwe123',
+    password_confirmation: 'qwe123'
   )
 end
 
-10.times do |i|
-  Medic.create(name: "médico #{i}", organization_id: (1..10))
+10.times do
+  Expertise.create(
+    name: Faker::Educator.subject,
+    description: Faker::Lorem.sentence
+  )
+end
+
+10.times do
+  Medic.create(
+    name: "Médico #{Faker::Name.name}",
+    organization_id: rand(1..10)
+  )
+end
+
+10.times do
+  MedicExpertise.create(
+    expertise_id: rand(1..10),
+    medic_id: rand(1..10)
+  )
 end
