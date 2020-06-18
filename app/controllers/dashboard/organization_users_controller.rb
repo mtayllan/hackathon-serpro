@@ -25,11 +25,11 @@ class Dashboard::OrganizationUsersController < DashboardController
     @organization_user = OrganizationUser.new(dashboard_organization_user_params)
 
     if current_organization_user.organization_id != @organization_user.organization_id
-      redirect_to dashboard_organization_users_url, notice: "You are not allowed to create a user to another organization."
+      redirect_to dashboard_organization_users_url, notice: "Você não pode criar uma usuários que não são da sua organização."
       return
     end
     if @organization_user.save
-      redirect_to dashboard_organization_users_url, notice: 'User was successfully created.'
+      redirect_to dashboard_organization_users_url, notice: 'Usuário criado com sucesso.'
     else
       render new_dashboard_organization_user_url
     end
@@ -37,7 +37,7 @@ class Dashboard::OrganizationUsersController < DashboardController
 
   def update
     if @organization_user.update(dashboard_organization_user_params)
-      redirect_to dashboard_organization_users_url, notice: 'User was successfully updated.'
+      redirect_to dashboard_organization_users_url, notice: 'Usuário atualizado com sucesso.'
     else
       render :edit
     end
@@ -45,9 +45,9 @@ class Dashboard::OrganizationUsersController < DashboardController
 
   def destroy
     if @organization_user.destroy
-      redirect_to dashboard_organization_users_url, notice: 'User was successfully destroyed.'
+      redirect_to dashboard_organization_users_url, notice: 'Usuário deletado com sucesso.'
     else
-      redirect_to dashboard_organization_users_url, notice: 'User was unsuccessfully destroyed.'
+      redirect_to dashboard_organization_users_url, notice: 'Usuário deletado com sucesso.'
     end
   end
 
