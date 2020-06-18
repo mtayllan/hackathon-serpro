@@ -4,6 +4,7 @@ class Dashboard::OrganizationsController < DashboardController
   def edit
     @organization = current_user.organization
     @organization.build_address if @organization.address.nil?
+    @organization.build_organization_setting if @organization.address.nil?
   end
 
   def update

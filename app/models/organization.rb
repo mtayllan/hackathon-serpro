@@ -2,10 +2,13 @@
 
 class Organization < ApplicationRecord
   has_one :address, dependent: :destroy
+  has_one :organization_setting, dependent: :destroy
   has_many :medics, dependent: :destroy
   has_many :organization_users, dependent: :destroy
   has_many :contacts, dependent: :destroy
   has_many_attached :images
+
+  accept_nested_fields_for :address, :organization_setting, update_only: true
 
   enum kind: {
     public_hospital: 0,
