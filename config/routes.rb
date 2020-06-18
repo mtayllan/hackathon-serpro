@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     get 'main/index'
     resources :medics, except: [:show]
     resource :organization, only: %i[edit update]
+    resources :contacts, except: [:show]
   end
 end

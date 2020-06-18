@@ -1,0 +1,19 @@
+<%= form_for [:dashboard, @contact] do |f| %>
+  <div class="form-group">
+    <%= f.label :kind %>
+    <%= f.select :kind, Contact.kinds.map { |kind, _int| [kind, kind] }, {}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :value %>
+    <%= f.text_field :value, class: 'form-control' %>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.submit 'Salvar', class: 'btn btn-primary btn-block' %>
+    </div>
+    <div class="col-6"></div>
+    <div class="col text-right">
+      <%= link_to 'Voltar', dashboard_contacts_path %>
+    </div>
+  </div>
+<% end %>

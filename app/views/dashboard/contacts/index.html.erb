@@ -1,0 +1,49 @@
+<h1 class="h3 mb-2 text-gray-800">Meios de Contato</h1>
+<p class="mb-4">Aqui você pode visualizar e alterar os meios de contato da sua organização.</p>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <div class="row align-items-center">
+      <div class="col">
+        <h5 class="m-0 font-weight-bold text-primary">Listagem de Contatos</h5>
+      </div>
+      <div class="col text-right">
+        <%= link_to 'Novo Meio de Contato', new_dashboard_contact_path, class: 'btn btn-sm btn-primary' %>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table id="contacts-datatable" class="w-100 table" data-source="<%= dashboard_contacts_path(user: current_organization_user, format: :json) %>">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(() => {
+    $('#contacts-datatable').dataTable({
+      'processing': true,
+      'serverSide': true,
+      'ajax': {
+        'url': $('#contacts-datatable').data('source')
+      },
+      'pagingType': 'full_numbers',
+      'columns': [
+        { 'data': 'id' },
+        { 'data': 'kind' },
+        { 'data': 'value' },
+        { 'data': 'actions' }
+      ]
+    });
+  });
+</script>
