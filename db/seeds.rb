@@ -28,5 +28,5 @@ end
 end
 
 10.times do |i|
-  Medic.create(name: "médico #{i}", organization_id: (1..5))
+  Medic.create(name: "médico #{i}", organization_id: (1..10))
 end
