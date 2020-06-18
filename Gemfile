@@ -7,6 +7,7 @@ ruby '2.6.5'
 
 gem 'ajax-datatables-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'cocoon'
 gem 'devise'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'jbuilder', '~> 2.7'

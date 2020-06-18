@@ -7,6 +7,14 @@
     <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
+  <div id="medic_expertises">
+    <%= f.fields_for :medic_expertises do |medic_expertise| %>
+      <%= render 'medic_expertise_fields', f: medic_expertise %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Adicionar experiência', f, :medic_expertises %>
+    </div>
+  </div>
   <div class="row">
     <div class="col">
       <%= f.submit 'Salvar', class: 'btn btn-primary btn-block' %>

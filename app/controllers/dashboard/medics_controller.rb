@@ -50,6 +50,6 @@ class Dashboard::MedicsController < DashboardController
   end
 
   def medic_params
-    params.require(:medic).permit(:name, :image)
+    params.require(:medic).permit(:name, :image, medic_expertises_attributes: [:id, :expertise_id, :_destroy])
   end
 end
