@@ -20,6 +20,8 @@
         <% end %>
       <% end %>
     <% end %>
-    <p> Última atualização: <span id="interval-last-update"><%= @last_interval.created_at.to_s %></span></p>
+    <% unless @last_interval.nil? %>
+      <p> Última atualização: <span id="interval-last-update"><%= last_occupancy_update(@last_interval.created_at) %></span></p>
+    <% end %>
   </div>
 </div>
