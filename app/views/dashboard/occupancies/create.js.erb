@@ -1,0 +1,8 @@
+document.querySelectorAll('.btn-interval').forEach(btn => {
+  if (btn.dataset.start == <%= params[:start] %>) {
+    btn.classList.add('active');
+  } else {
+    btn.classList.remove('active');
+  }
+});
+document.querySelector('#interval-last-update').textContent = '<%= @occupancy.created_at.to_s %>';

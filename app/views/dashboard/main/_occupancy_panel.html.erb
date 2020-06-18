@@ -1,0 +1,25 @@
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h5 class="m-0 font-weight-bold text-primary">Ocupação da Unidade</h5>
+  </div>
+  <div class="card-body">
+    <% @interval.representation.each_with_index do |value, index| %>
+      <% if @interval.representation.length - 1 == index %>
+        <%= button_to dashboard_occupancies_path,
+                      method: :post, class: interval_active_class(value, @last_interval.start),
+                      data: { start: value }, remote: true,
+                      params: { start: value } do %>
+          <%= "Mais que #{value} pessoas" %>
+        <% end %>
+      <% else %>
+        <%= button_to dashboard_occupancies_path,
+                      method: :post, class: interval_active_class(value, @last_interval.start),
+                      data: { start: value }, remote: true,
+                      params: { start: value, finish: value + @interval.step } do %>
+          <%= "De #{value} até #{value + @interval.step} pessoas" %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <p> Última atualização: <span id="interval-last-update"><%= @last_interval.created_at.to_s %></span></p>
+  </div>
+</div>
