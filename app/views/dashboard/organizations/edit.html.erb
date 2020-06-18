@@ -1,0 +1,66 @@
+<h1 class="h3 mb-2 text-gray-800">Editar sua organização</h1>
+<p class="mb-4">Tem algum dado desatualizado? Mantenha os dados de sua organização sempre atualizados!</p>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Dados da Organização</h6>
+  </div>
+  <div class="card-body">
+    <%= form_for [:dashboard, @organization] do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :images %>
+        <%= f.file_field :images, multiple: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :cnes %>
+        <%= f.text_field :cnes, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.check_box :covid_attendance %>
+        <%= f.label :covid_attendance %>
+      </div>
+      <div class="form-group">
+        <%= f.label :cnpj %>
+        <%= f.text_field :cnpj, class: 'form-control' %>
+      </div>
+      <%= f.fields_for :address do |ff| %>
+        <div class="form-group">
+          <%= ff.label :zipcode %>
+          <%= ff.text_field :zipcode, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= ff.label :state %>
+          <%= ff.text_field :city, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= ff.label :city %>
+          <%= ff.text_field :city, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= ff.label :street %>
+          <%= ff.text_field :street, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= ff.label :neighborhood %>
+          <%= ff.text_field :neighborhood, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= ff.label :number %>
+          <%= ff.text_field :number, class: 'form-control' %>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col">
+          <%= f.submit 'Salvar', class: 'btn btn-primary btn-block' %>
+        </div>
+        <div class="col-6"></div>
+        <div class="col text-right">
+          <%= link_to 'Voltar', dashboard_path %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
