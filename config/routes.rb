@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     get '/', to: 'main#index'
     get 'main/index'
     resources :medics, except: [:show]
+    resources :contacts, except: [:show]
   end
 end

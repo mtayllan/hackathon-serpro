@@ -40,7 +40,7 @@ class Dashboard::MedicsController < DashboardController
 
   def destroy
     @medic.destroy
-    redirect_to dashboard_medics_path, notice: 'Médico exclído com sucesso'
+    redirect_to dashboard_medics_path, notice: 'Médico excluído com sucesso'
   end
 
   private
