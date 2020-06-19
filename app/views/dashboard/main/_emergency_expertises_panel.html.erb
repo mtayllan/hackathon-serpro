@@ -1,0 +1,30 @@
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <div class="row align-items-center">
+      <div class="col">
+        <h5 class="m-0 font-weight-bold text-primary">Especialidades de plantão</h5>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Especialidade</th>
+            <th scope="col">Quantidade</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @medic_expertises.each do |medic_expertise, value| %>
+            <tr data-id="<%= medic_expertise.id %>">
+              <td><%= medic_expertise.name %></td>
+              <td><%= value %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
