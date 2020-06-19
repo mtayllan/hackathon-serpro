@@ -10,3 +10,5 @@ Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 Naming/AccessorMethodName:
   Enabled: false
+Layout/LineLength:
+  Max: 110

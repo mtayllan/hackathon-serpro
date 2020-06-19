@@ -6,10 +6,7 @@ class Dashboard::MedicsController < DashboardController
   def index
     respond_to do |format|
       format.html
-      format.json do
-        render json: MedicDatatable.new(params, view_context: view_context,
-                                                user: current_user)
-      end
+      format.json { render json: MedicDatatable.new(params, view_context: view_context, user: current_user) }
     end
   end
 
@@ -31,13 +28,10 @@ class Dashboard::MedicsController < DashboardController
   def edit; end
 
   def update
-    respond_to do |format|
-      if @medic.update(medic_params)
-        format.html { redirect_to dashboard_medics_path, notice: 'Médico atualizado com sucesso' }
-        format.js {  }
-      else
-        render :edit
-      end
+    if @medic.update(medic_params)
+      redirect_to dashboard_medics_path, notice: 'Médico atualizado com sucesso'
+    else
+      render :edit
     end
   end
 
@@ -54,6 +48,6 @@ class Dashboard::MedicsController < DashboardController
 
   def medic_params
     params.require(:medic).permit(:name, :image, :on_shift,
-                                  medic_expertises_attributes: [:id, :expertise_id, :_destroy])
+                                  medic_expertises_attributes: %i[id expertise_id _destroy])
   end
 end

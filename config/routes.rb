@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   namespace :dashboard do
     get '/', to: 'main#index'
     get 'main/index'
-    resources :medics, except: [:show]
+    resources :medics, except: :show
     resource :organization, only: %i[edit update]
-    resources :contacts, except: [:show]
-    resources :organization_users, except: [:show]
+    resources :contacts, except: :show
+    resources :organization_users, except: :show
     resources :occupancies, only: :create
+    resource :emergency_medics, only: %i[create destroy]
   end
 end

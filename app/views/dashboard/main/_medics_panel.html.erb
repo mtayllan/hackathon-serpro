@@ -1,0 +1,31 @@
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <div class="row align-items-center">
+      <div class="col">
+        <h5 class="m-0 font-weight-bold text-primary">Médicos Ativos no Pronto-Socorro</h5>
+      </div>
+      <div class="col text-right">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#newMedic">Adicionar médico</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table" id="medicsTable">
+        <thead>
+          <tr>
+            <th scope="col">Médicos</th>
+            <th scope="col">Especialidade</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @medics_on_shift.each do |medic| %>
+            <%= render partial: 'medic', locals: { medic: medic } %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= render partial: 'add_medic_modal' %>

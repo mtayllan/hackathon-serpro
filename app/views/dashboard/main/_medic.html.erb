@@ -1,0 +1,7 @@
+<tr data-id="<%= medic.id %>">
+  <td><%= medic.name %></td>
+  <td><%= medic.expertises.map(&:name).join(', ') %></td>
+  <td><%= button_to 'Encerrar',
+                    dashboard_emergency_medics_path(id: medic.id),
+                    method: :delete, remote: true, class: "btn btn-outline-primary btn-block mb-1" %></td>
+</tr>

@@ -3,7 +3,7 @@
     <h5 class="m-0 font-weight-bold text-primary">Ocupação da Unidade</h5>
   </div>
   <div class="card-body">
-    <% @interval.representation.each_with_index do |value, index| %>
+    <% @interval&.representation&.each_with_index do |value, index| %>
       <% if @interval.representation.length - 1 == index %>
         <%= button_to dashboard_occupancies_path,
                       method: :post, class: interval_active_class(value, @last_interval.start),

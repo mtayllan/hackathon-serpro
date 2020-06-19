@@ -1,0 +1,8 @@
+$('#newMedic').modal('hide');
+
+$('#medicsTable tbody')
+        .append('<%= j render partial: 'dashboard/main/medic', locals: { medic: @medic } %>')
+
+iziToast.success({
+  'message': 'Médico adicionado com sucesso.'
+});
