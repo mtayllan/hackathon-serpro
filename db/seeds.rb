@@ -18,6 +18,13 @@ require 'faker'
   )
 end
 
+OrganizationUser.create(
+  email: 'admin@admin.com',
+  organization_id: rand(1..10),
+  password: 'qwe123',
+  password_confirmation: 'qwe123'
+)
+
 10.times do
   OrganizationUser.create(
     email: Faker::Internet.email,
