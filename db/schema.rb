@@ -79,6 +79,22 @@ ActiveRecord::Schema.define(version: 2020_06_18_235932) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "health_insurers", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "health_plans", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.bigint "health_insurer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["health_insurer_id"], name: "index_health_plans_on_health_insurer_id"
+  end
+
   create_table "intervals", force: :cascade do |t|
     t.string "description"
     t.integer "start"
@@ -101,7 +117,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_235932) do
     t.bigint "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "on_shift"
+    t.boolean "on_shift", default: false
     t.index ["organization_id"], name: "index_medics_on_organization_id"
   end
 
@@ -112,6 +128,15 @@ ActiveRecord::Schema.define(version: 2020_06_18_235932) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["organization_id"], name: "index_occupancies_on_organization_id"
+  end
+
+  create_table "organization_health_plan_expertises", force: :cascade do |t|
+    t.bigint "health_plan_id", null: false
+    t.bigint "organization_id", null: false
+    t.bigint "expertise_id", null: false
+    t.index ["expertise_id"], name: "index_organization_health_plan_expertises_on_expertise_id"
+    t.index ["health_plan_id"], name: "index_organization_health_plan_expertises_on_health_plan_id"
+    t.index ["organization_id"], name: "index_organization_health_plan_expertises_on_organization_id"
   end
 
   create_table "organization_settings", force: :cascade do |t|
@@ -151,10 +176,14 @@ ActiveRecord::Schema.define(version: 2020_06_18_235932) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "organizations"
   add_foreign_key "contacts", "organizations"
+  add_foreign_key "health_plans", "health_insurers"
   add_foreign_key "medic_expertises", "expertises"
   add_foreign_key "medic_expertises", "medics"
   add_foreign_key "medics", "organizations"
   add_foreign_key "occupancies", "organizations"
+  add_foreign_key "organization_health_plan_expertises", "expertises"
+  add_foreign_key "organization_health_plan_expertises", "health_plans"
+  add_foreign_key "organization_health_plan_expertises", "organizations"
   add_foreign_key "organization_settings", "intervals"
   add_foreign_key "organization_settings", "organizations"
   add_foreign_key "organization_users", "organizations"

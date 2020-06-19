@@ -2,9 +2,13 @@
 
 class Dashboard::MainController < DashboardController
   def index
-    @medics = current_user.organization.medics
+    organization = current_user.organization
+    @medics = organization.medics
     @medics_on_shift = @medics.on_shift
-    @interval = current_user.organization.settings&.interval
-    @last_interval = current_user.organization.occupancies.last
+    @medic_expertises = MedicExpertise.includes(:medic)
+                                      .where(medics: { on_shift: true, organization_id: organization.id })
+                                      .group(:expertise).count
+    @interval = organization.settings.interval
+    @last_interval = organization.occupancies.last
   end
 end

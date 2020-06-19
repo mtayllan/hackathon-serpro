@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resource :organization, only: %i[edit update]
     resources :contacts, except: :show
     resources :organization_users, except: :show
+    resources :organization_health_plan_expertises, except: :show
     resources :occupancies, only: :create
     resource :emergency_medics, only: %i[create destroy]
   end
