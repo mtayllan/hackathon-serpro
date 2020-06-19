@@ -1,0 +1,8 @@
+medic = $('tr[data-id=<%= params[:id] %>]')
+medic.hide(function(){
+  $(self).remove()
+});
+
+iziToast.success({
+  'message': 'Médico retirado do plantão com sucesso.'
+});

@@ -26,6 +26,12 @@
         <%= f.label :cnpj %>
         <%= f.text_field :cnpj, class: 'form-control' %>
       </div>
+      <%= f.fields_for :organization_setting do |ff| %>
+        <div class="form-group">
+          <%= ff.label :interval_id %>
+          <%= ff.collection_select :interval_id, Interval.all, :id, :normalized_representation, class: 'form-control' %>
+        </div>
+      <% end %>
       <%= f.fields_for :address do |ff| %>
         <div class="form-group">
           <%= ff.label :zipcode %>

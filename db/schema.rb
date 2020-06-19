@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_18_224759) do
+ActiveRecord::Schema.define(version: 2020_06_18_235932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,16 @@ ActiveRecord::Schema.define(version: 2020_06_18_224759) do
     t.index ["health_insurer_id"], name: "index_health_plans_on_health_insurer_id"
   end
 
+  create_table "intervals", force: :cascade do |t|
+    t.string "description"
+    t.integer "start"
+    t.integer "finish"
+    t.integer "step"
+    t.integer "counts"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "medic_expertises", force: :cascade do |t|
     t.bigint "expertise_id", null: false
     t.bigint "medic_id", null: false
@@ -107,7 +117,17 @@ ActiveRecord::Schema.define(version: 2020_06_18_224759) do
     t.bigint "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "on_shift"
     t.index ["organization_id"], name: "index_medics_on_organization_id"
+  end
+
+  create_table "occupancies", force: :cascade do |t|
+    t.integer "start"
+    t.integer "finish"
+    t.bigint "organization_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organization_id"], name: "index_occupancies_on_organization_id"
   end
 
   create_table "organization_health_plan_expertises", force: :cascade do |t|
@@ -117,6 +137,15 @@ ActiveRecord::Schema.define(version: 2020_06_18_224759) do
     t.index ["expertise_id"], name: "index_organization_health_plan_expertises_on_expertise_id"
     t.index ["health_plan_id"], name: "index_organization_health_plan_expertises_on_health_plan_id"
     t.index ["organization_id"], name: "index_organization_health_plan_expertises_on_organization_id"
+  end
+
+  create_table "organization_settings", force: :cascade do |t|
+    t.bigint "interval_id", null: false
+    t.bigint "organization_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["interval_id"], name: "index_organization_settings_on_interval_id"
+    t.index ["organization_id"], name: "index_organization_settings_on_organization_id"
   end
 
   create_table "organization_users", force: :cascade do |t|
@@ -141,6 +170,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_224759) do
     t.string "cnpj"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "has_emergency"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -150,8 +180,11 @@ ActiveRecord::Schema.define(version: 2020_06_18_224759) do
   add_foreign_key "medic_expertises", "expertises"
   add_foreign_key "medic_expertises", "medics"
   add_foreign_key "medics", "organizations"
+  add_foreign_key "occupancies", "organizations"
   add_foreign_key "organization_health_plan_expertises", "expertises"
   add_foreign_key "organization_health_plan_expertises", "health_plans"
   add_foreign_key "organization_health_plan_expertises", "organizations"
+  add_foreign_key "organization_settings", "intervals"
+  add_foreign_key "organization_settings", "organizations"
   add_foreign_key "organization_users", "organizations"
 end

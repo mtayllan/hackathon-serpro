@@ -9,21 +9,25 @@ gem 'ajax-datatables-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'cocoon'
 gem 'devise'
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 gem 'rails_admin'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'sass-rails', '>= 6'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker'
 end
 
 group :development do
   gem 'listen', '~> 3.2'
+  gem 'pry-rails'
   gem 'rubocop'
+  gem 'rubycritic'
+  gem 'solargraph'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
