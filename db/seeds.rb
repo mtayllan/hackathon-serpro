@@ -108,3 +108,28 @@ end
     expertise_id: rand(1..10)
   )
 end
+
+5.times do
+  Interval.create(
+    description: 'intervalo de pessoas presentes',
+    start: rand(1..5),
+    finish: rand(40..200),
+    step: rand(10..20),
+    counts: rand(2..5)
+  )
+end
+
+10.times do |i|
+  OrganizationSetting.create(
+    interval_id: rand(1..5),
+    organization_id: i
+  )
+end
+
+10.times do |i|
+  Occupancy.create(
+    start: rand(1..5),
+    finish: rand(5..20),
+    organization_id: i
+  )
+end

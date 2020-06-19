@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_235932) do
     t.bigint "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "on_shift"
+    t.boolean "on_shift", default: false
     t.index ["organization_id"], name: "index_medics_on_organization_id"
   end
 
