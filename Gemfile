@@ -14,6 +14,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 gem 'rails_admin'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'sass-rails', '>= 6'
 
 group :development, :test do

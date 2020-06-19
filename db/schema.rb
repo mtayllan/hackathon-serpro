@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_18_224746) do
+ActiveRecord::Schema.define(version: 2020_06_18_235932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_224746) do
     t.bigint "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "on_shift"
     t.index ["organization_id"], name: "index_medics_on_organization_id"
   end
 
@@ -144,6 +145,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_224746) do
     t.string "cnpj"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "has_emergency"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

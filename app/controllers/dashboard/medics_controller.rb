@@ -31,10 +31,13 @@ class Dashboard::MedicsController < DashboardController
   def edit; end
 
   def update
-    if @medic.update(medic_params)
-      redirect_to dashboard_medics_path, notice: 'Médico atualizado com sucesso'
-    else
-      render :edit
+    respond_to do |format|
+      if @medic.update(medic_params)
+        format.html { redirect_to dashboard_medics_path, notice: 'Médico atualizado com sucesso' }
+        format.js {  }
+      else
+        render :edit
+      end
     end
   end
 
@@ -50,6 +53,7 @@ class Dashboard::MedicsController < DashboardController
   end
 
   def medic_params
-    params.require(:medic).permit(:name, :image, medic_expertises_attributes: [:id, :expertise_id, :_destroy])
+    params.require(:medic).permit(:name, :image, :on_shift,
+                                  medic_expertises_attributes: [:id, :expertise_id, :_destroy])
   end
 end
