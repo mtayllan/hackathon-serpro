@@ -95,13 +95,6 @@ ActiveRecord::Schema.define(version: 2020_06_18_224759) do
     t.index ["health_insurer_id"], name: "index_health_plans_on_health_insurer_id"
   end
 
-  create_table "health_plans_expertises", force: :cascade do |t|
-    t.bigint "expertise_id", null: false
-    t.bigint "health_plan_id", null: false
-    t.index ["expertise_id"], name: "index_health_plans_expertises_on_expertise_id"
-    t.index ["health_plan_id"], name: "index_health_plans_expertises_on_health_plan_id"
-  end
-
   create_table "medic_expertises", force: :cascade do |t|
     t.bigint "expertise_id", null: false
     t.bigint "medic_id", null: false
@@ -117,11 +110,13 @@ ActiveRecord::Schema.define(version: 2020_06_18_224759) do
     t.index ["organization_id"], name: "index_medics_on_organization_id"
   end
 
-  create_table "organization_health_plans_expertises", force: :cascade do |t|
-    t.bigint "health_plans_expertise_id", null: false
+  create_table "organization_health_plan_expertises", force: :cascade do |t|
+    t.bigint "health_plan_id", null: false
     t.bigint "organization_id", null: false
-    t.index ["health_plans_expertise_id"], name: "plans_expertise"
-    t.index ["organization_id"], name: "index_organization_health_plans_expertises_on_organization_id"
+    t.bigint "expertise_id", null: false
+    t.index ["expertise_id"], name: "index_organization_health_plan_expertises_on_expertise_id"
+    t.index ["health_plan_id"], name: "index_organization_health_plan_expertises_on_health_plan_id"
+    t.index ["organization_id"], name: "index_organization_health_plan_expertises_on_organization_id"
   end
 
   create_table "organization_users", force: :cascade do |t|
@@ -152,12 +147,11 @@ ActiveRecord::Schema.define(version: 2020_06_18_224759) do
   add_foreign_key "addresses", "organizations"
   add_foreign_key "contacts", "organizations"
   add_foreign_key "health_plans", "health_insurers"
-  add_foreign_key "health_plans_expertises", "expertises"
-  add_foreign_key "health_plans_expertises", "health_plans"
   add_foreign_key "medic_expertises", "expertises"
   add_foreign_key "medic_expertises", "medics"
   add_foreign_key "medics", "organizations"
-  add_foreign_key "organization_health_plans_expertises", "health_plans_expertises"
-  add_foreign_key "organization_health_plans_expertises", "organizations"
+  add_foreign_key "organization_health_plan_expertises", "expertises"
+  add_foreign_key "organization_health_plan_expertises", "health_plans"
+  add_foreign_key "organization_health_plan_expertises", "organizations"
   add_foreign_key "organization_users", "organizations"
 end

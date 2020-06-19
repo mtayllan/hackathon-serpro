@@ -5,6 +5,7 @@ class Organization < ApplicationRecord
   has_many :medics, dependent: :destroy
   has_many :organization_users, dependent: :destroy
   has_many :contacts, dependent: :destroy
+  has_many :organization_health_plan_expertises
   has_many_attached :images
 
   enum kind: {

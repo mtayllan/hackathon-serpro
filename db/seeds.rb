@@ -64,15 +64,9 @@ end
 end
 
 10.times do
-  HealthPlansExpertise.create(
+  OrganizationHealthPlanExpertise.create(
+    organization_id: rand(1..10),
     health_plan_id: rand(1..10),
     expertise_id: rand(1..10)
-  )
-end
-
-10.times do
-  OrganizationHealthPlansExpertise.create(
-    organization_id: rand(1..10),
-    health_plans_expertise_id: rand(1..10)
   )
 end
