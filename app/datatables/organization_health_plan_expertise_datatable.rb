@@ -25,7 +25,7 @@ class OrganizationHealthPlanExpertiseDatatable < BaseDatatable
   end
 
   def get_raw_records
-    user.organization.organization_health_plan_expertises.joins(:expertise).joins(:health_plan)
+    user.organization.organization_health_plan_expertises.joins(:expertise, :health_plan)
   end
 
   private

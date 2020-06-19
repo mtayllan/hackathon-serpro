@@ -19,10 +19,9 @@ class Dashboard::OrganizationHealthPlanExpertisesController < DashboardControlle
 
   def create
     @organization_health_plan_expertise = OrganizationHealthPlanExpertise.new(organization_health_plan_expertise_params)
-    @organization_health_plan_expertise.organization = current_user.organization
 
     if @organization_health_plan_expertise.save
-      redirect_to dashboard_organization_health_plan_expertises_path, notice: 'Médico criado com sucesso'
+      redirect_to dashboard_organization_health_plan_expertises_path, notice: 'Plano criado com sucesso'
     else
       render :new
     end
@@ -32,7 +31,7 @@ class Dashboard::OrganizationHealthPlanExpertisesController < DashboardControlle
 
   def update
     if @organization_health_plan_expertise.update(organization_health_plan_expertise_params)
-      redirect_to dashboard_organization_health_plan_expertises_path, notice: 'Médico atualizado com sucesso'
+      redirect_to dashboard_organization_health_plan_expertises_path, notice: 'Plano atualizado com sucesso'
     else
       render :edit
     end
@@ -40,7 +39,7 @@ class Dashboard::OrganizationHealthPlanExpertisesController < DashboardControlle
 
   def destroy
     @organization_health_plan_expertise.destroy
-    redirect_to dashboard_organization_health_plan_expertises_path, notice: 'Médico excluído com sucesso'
+    redirect_to dashboard_organization_health_plan_expertises_path, notice: 'Plano excluído com sucesso'
   end
 
   private

@@ -1,0 +1,22 @@
+<%= form_for [:dashboard, @organization_health_plan_expertise] do |f| %>
+  <div class="form-group">
+    <%= f.label :expertise %>
+    <%= f.collection_select(:expertise_id, Expertise.all, :id, :name, prompt: true) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :health_plan %>
+    <%= f.collection_select(:health_plan_id, HealthPlan.all, :id, :name, prompt: true) %>
+  </div>
+
+  <%= f.hidden_field :organization_id, value: current_organization_user.organization_id %>
+
+  <div class="row">
+    <div class="col">
+      <%= f.submit 'Salvar', class: 'btn btn-primary btn-block' %>
+    </div>
+    <div class="col-6"></div>
+    <div class="col text-right">
+      <%= link_to 'Voltar', dashboard_organization_health_plan_expertises_path %>
+    </div>
+  </div>
+<% end %>
