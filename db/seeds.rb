@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -15,6 +17,28 @@ require 'faker'
     cnes: Faker::IDNumber.south_african_id_number,
     covid_attendance: [true, false].sample,
     cnpj: Faker::IDNumber.valid,
+    has_emergency: [true, false].sample
+  )
+end
+
+10.times do |i|
+  Address.create(
+    city: Faker::Address.city,
+    street: Faker::Address.street_name,
+    number: Faker::Address.building_number,
+    zipcode: Faker::Address.zip_code,
+    state: Faker::Address.state,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
+    organization_id: i
+  )
+end
+
+10.times do |i|
+  Contact.create(
+    kind: rand(1..2),
+    value: Faker::PhoneNumber.phone_number,
+    organization_id: i
   )
 end
 
@@ -42,9 +66,16 @@ end
 end
 
 10.times do
+  org_id = rand(1..10)
+  shift = if Organization.find(org_id).has_emergency?
+            [true, false].sample
+          else
+            false
+          end
   Medic.create(
     name: "Médico #{Faker::Name.name}",
-    organization_id: rand(1..10)
+    organization_id: org_id,
+    on_shift: shift
   )
 end
 
@@ -64,7 +95,7 @@ end
 
 10.times do
   HealthPlan.create(
-    name: Faker::Company.industry,
+    name: Faker::DcComics.hero,
     description: Faker::Lorem.sentence,
     health_insurer_id: rand(1..10)
   )
