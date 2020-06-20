@@ -18,4 +18,8 @@ Rails.application.routes.draw do
     resources :occupancies, only: :create
     resource :emergency_medics, only: %i[create destroy]
   end
+
+  root to: 'app#index'
+  namespace :app do
+  end
 end
