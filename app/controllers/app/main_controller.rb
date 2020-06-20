@@ -4,5 +4,6 @@ class App::MainController < AppController
   def index
     @expertises = Expertise.all
     @plans = HealthPlan.all
+    @organizations = Organization.all
   end
 end

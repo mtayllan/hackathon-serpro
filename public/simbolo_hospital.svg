@@ -1,0 +1,22 @@
+<svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d)">
+<g clip-path="url(#clip0)">
+<path d="M24.782 23.7791C22.5356 26.0255 19.4315 27.4152 16.0029 27.4152C12.5744 27.4152 9.47062 26.0255 7.22383 23.7791C4.97738 21.5326 3.58772 18.4285 3.58772 15C3.58772 11.5715 4.97738 8.46736 7.22383 6.22091C9.47062 3.97434 12.5744 2.58463 16.0029 2.58463C19.4315 2.58463 22.5356 3.97434 24.782 6.22091C27.0287 8.46736 28.4185 11.5715 28.4185 15C28.4185 18.4285 27.0287 21.5326 24.782 23.7791ZM16.0029 1C8.2711 1 2.00293 7.26801 2.00293 15C2.00293 22.7318 8.2711 29 16.0029 29C23.7351 29 30.0029 22.7318 30.0029 15C30.0029 7.26801 23.7351 1 16.0029 1Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.873 17.5009V12.4991C23.873 12.1659 23.6003 11.8934 23.2673 11.8934H19.1096V7.7356C19.1096 7.4025 18.8369 7.12988 18.5039 7.12988H13.5019C13.1686 7.12988 12.8962 7.40244 12.8962 7.7356V11.8934H8.73844C8.40512 11.8934 8.13272 12.1659 8.13272 12.4991V17.5009C8.13272 17.8343 8.40512 18.1069 8.73844 18.1069H12.8962V22.2643C12.8962 22.5974 13.1686 22.8701 13.5019 22.8701H18.5039C18.8369 22.8701 19.1096 22.5974 19.1096 22.2643V18.1069H23.2673C23.6003 18.107 23.873 17.8343 23.873 17.5009Z" fill="#40E0CF"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d" x="0.00292969" y="0" width="32" height="32" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<clipPath id="clip0">
+<path d="M30.0029 1H14.0029C7.37551 1 2.00293 6.37258 2.00293 13V17C2.00293 23.6274 7.37551 29 14.0029 29H18.0029C24.6303 29 30.0029 23.6274 30.0029 17V1Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>
