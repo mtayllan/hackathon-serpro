@@ -7,7 +7,6 @@ class PerformSearch < ApplicationService
   end
 
   def call
-    byebug
     search = { covid_attendance: @query[:covid].present? }
     if @query[:emergency]
       search[:medics] = { on_shift: true }

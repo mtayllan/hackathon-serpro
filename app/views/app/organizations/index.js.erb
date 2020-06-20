@@ -1,0 +1,2 @@
+organizationsList = document.querySelector('#organizations-list')
+organizationsList.innerHTML = '<%= j render partial: 'app/main/organization_list', locals: { organizations: @organizations } %>';

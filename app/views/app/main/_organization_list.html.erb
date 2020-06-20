@@ -25,7 +25,7 @@
             </div>
           </div>
         </li>
-        <% @organizations.each do |organization| %>
+        <% organizations.each do |organization| %>
           <li class="list-group-item org-item p-1">
             <%= link_to '', app_organization_path(organization), class: 'stretched-link' %>
             <div class="row">
