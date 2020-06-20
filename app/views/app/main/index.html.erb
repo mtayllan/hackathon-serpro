@@ -1,0 +1,103 @@
+<div class="mind-bg" style="height: 100vh">
+  <div class="container">
+    <div class="row justify-content-center align-items-center no-gutters">
+      <div class="col text-center">
+        <%= image_tag 'mind.png', class: 'img-fluid', width: '200px' %>
+      </div>
+      <div class="col text-center">
+        <h1 class="text-primary"> Mind </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center mb-2">
+        <div class="dropdown">
+          <button class="btn btn-primary btn-block text-white text-shadown dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Adicione um critério de pesquisa
+          </button>
+          <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+            <button class="dropdown-item text-secondary" onclick="toggleVisibility('expertise-select')">
+              <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
+              Especialidade Médica
+            </button>
+            <button class="dropdown-item text-secondary" onclick="toggleVisibility('plan-select')">
+              <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
+              Plano de Saúde
+            </button>
+            <button class="dropdown-item text-secondary" onclick="toggleVisibility('unit-select')">
+              <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
+              Tipo de Unidade
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center no-gutters mb-2" id="expertise-select">
+      <div class="col-11">
+        <select name="expertise" title="Selecione uma ou mais especialidades" class="selectpicker" data-style="btn-light" data-live-search="true" data-width="100%" multiple>
+          <% @expertises.find_each do |expertise| %>
+            <option value="<%= expertise.id %>" data-content="<span class='badge badge-primary text-white text-shadow'><%= expertise.name %></span>"><%= expertise.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="col-1">
+        <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('expertise-select')"></i>
+      </div>
+    </div>
+    <div class="row align-items-center no-gutters mb-2" id="plan-select">
+      <div class="col-11">
+        <select name="plan" title="Selecione um plano de saúde" class="selectpicker" data-style="btn-light" data-live-search="true" data-width="100%">
+          <% @plans.find_each do |plan| %>
+            <option value="<%= plan.id %>"><%= plan.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="col-1">
+        <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('plan-select')"></i>
+      </div>
+    </div>
+    <div class="row align-items-center no-gutters d-none" id="unit-select">
+      <div class="col-11">
+        <select name="expertise" title="Selecione um ou mais tipos de unidade" class="selectpicker" data-style="btn-light" data-live-search="true" data-width="100%" multiple>
+          <% Organization.kinds.each do |kind| %>
+            <option value="<%= kind.second %>" data-content="<span class='badge badge-primary text-white text-shadow'><%= kind.first %></span>"><%= kind.first %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="col-1">
+        <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('unit-select')"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="custom-control custom-checkbox d-block my-2">
+          <input type="checkbox" class="custom-control-input" id="ckEmergency" name="emergency">
+          <label class="custom-control-label text-white" for="ckEmergency">Possui Pronto-Atendimento (24h)</label>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="custom-control custom-checkbox d-block my-2">
+          <input type="checkbox" class="custom-control-input" id="ckCovid" name="covid">
+          <label class="custom-control-label text-white" for="ckCovid">Atendimento a Covid (24h)</label>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col">
+        <button class="btn btn-primary text-white text-shadow btn-block"><i class="fa fa-search" aria-hidden="true"></i> Localize a unidade ideal!</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+  function toggleVisibility(id) {
+    const el = document.getElementById(id);
+    if (el.classList.contains('d-none')) {
+      el.classList.remove('d-none');
+    } else {
+      el.classList.add('d-none');
+    }
+  }
+</script>

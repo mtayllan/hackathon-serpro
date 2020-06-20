@@ -21,5 +21,7 @@ Rails.application.routes.draw do
 
   root to: 'app#index'
   namespace :app do
+    get '/', to: 'main#index'
+    resources :organizations, only: %i[index show]
   end
 end

@@ -4,3 +4,11 @@
  *= require shards
  *= require shards-extras
 */
+
+.mind-bg {
+  background-color: #2794D5;
+}
+
+.text-shadown {
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
