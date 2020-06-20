@@ -2,9 +2,8 @@
 
 class App::OrganizationsController < AppController
   def index
-    search = Organization.ransack(params[:q])
-    @organizations = search.includes(:organization_setting, :address)
-                           .result.to_a.uniq
+    @organizations = PerformSearch.call(params[:q])
+    render js: "console.log('#{@organizations.to_json}')"
   end
 
   def show
