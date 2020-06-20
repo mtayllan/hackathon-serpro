@@ -15,7 +15,7 @@
                     <%= image_tag @organization.featured_image, class: 'img-fluid rounded mx-auto d-block' %>
                   </div>
                 </div>
-                <div class="media m-1">
+                <div class="media m-1 media-sm">
                   <%= image_tag 'localization.svg', class: 'align-self-center mr-1' %>
                   <div class="media-body align-self-center">
                     <%= @organization.address.to_s %>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="row align-items-center">
                   <div class="col-6 pr-0">
-                    <div class="media m-1">
+                    <div class="media m-1 media-sm">
                       <%= image_tag 'health.svg', class: 'align-self-center mr-1' %>
                       <div class="media-body align-self-center">
                         Hospital Particular <small>Agendamento</small>
@@ -31,7 +31,7 @@
                     </div>
                   </div>
                   <div class="col-6 pr-0">
-                    <div class="media m-1">
+                    <div class="media m-1 media-sm">
                       <%= image_tag 'covid.png', class: 'align-self-center mr-1' %>
                       <div class="media-body align-self-center">
                         Atende Pacientes COVID-19
@@ -39,13 +39,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="media m-1">
+                <div class="media m-1 media-sm">
                   <%= image_tag 'clock.svg', class: 'align-self-center mr-1' %>
                   <div class="media-body align-self-center">
                     Aberto (8:00 - 22:00)
                   </div>
                 </div>
-                <div class="media m-1">
+                <div class="media m-1 media-sm">
                   <%= image_tag 'emergency.svg', class: 'align-self-center mr-1' %>
                   <div class="media-body align-self-center">
                     Possui Pronto-Atendimento (24h)
@@ -67,7 +67,7 @@
                   <div class="col-6">
                     <% @organization.contacts.each do |contact| %>
                       <% if contact.phone? %>
-                        <div class="media m-1">
+                        <div class="media m-1 media-sm">
                           <%= image_tag 'phone.svg', class: 'align-self-center mr-1' %>
                           <div class="media-body align-self-center">
                             <%= contact.value %>
@@ -88,7 +88,7 @@
                       <div class="row">
                         <% if (phone = @organization.contacts.emergency.first) %>
                           <div class="col">
-                            <div class="media m-1">
+                            <div class="media m-1 media-sm">
                               <%= image_tag 'phone.svg', class: 'align-self-center mr-1' %>
                               <div class="media-body align-self-center">
                                 <%= phone.value %>
@@ -98,7 +98,7 @@
                         <% end %>
                         <% if (occupancy = @organization.occupancies.last) %>
                           <div class="col">
-                            <div class="media m-1">
+                            <div class="media m-1 media-sm">
                               <%= image_tag 'clock_health.svg', class: 'align-self-center mr-1' %>
                               <div class="media-body align-self-center">
                                 <b>Ocupação:</b> <br>
