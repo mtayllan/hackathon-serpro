@@ -12,14 +12,14 @@ require 'faker'
   )
 end
 
-4.times do |i|
+5.times do |i|
   OrganizationSetting.create(
     interval_id: rand(1..5),
     organization_id: i + 1
   )
 end
 
-4.times do |i|
+5.times do |i|
   Occupancy.create(
     start: rand(1..5),
     finish: rand(5..20),
@@ -59,11 +59,18 @@ Organization.create([
     covid_attendance: true,
     cnpj: Faker::IDNumber.valid,
     has_emergency: true
+  ],
+  [
+    name: 'Hospital das Clínicas',
+    kind: 3,
+    cnes: Faker::IDNumber.south_african_id_number,
+    covid_attendance: false,
+    cnpj: Faker::IDNumber.valid,
+    has_emergency: false
   ]
-]
-)
+])
 
-4.times do |i|
+5.times do |i|
   Address.create(
     city: Faker::Address.city,
     street: Faker::Address.street_name,
@@ -77,7 +84,7 @@ Organization.create([
   )
 end
 
-4.times do |i|
+5.times do |i|
   Contact.create(
     kind: rand(1..2),
     value: Faker::PhoneNumber.phone_number,
@@ -120,10 +127,20 @@ Expertise.create([
   [
     name: 'Ginecologia',
     description: Faker::Lorem.sentence
+  ],
+  [
+    name: 'Cirurgia Geral',
+    description: Faker::Lorem.sentence
+  ],
+  [
+    name: 'Cirurgia Cardiovascular',
+    description: Faker::Lorem.sentence
+  ],
+  [
+    name: 'Cirurgia Torácica',
+    description: Faker::Lorem.sentence
   ]
-]
-)
-
+])
 
 20.times do
   org_id = rand(1..4)
@@ -141,7 +158,7 @@ end
 
 30.times do
   MedicExpertise.create(
-    expertise_id: rand(1..7),
+    expertise_id: rand(1..10),
     medic_id: rand(1..20)
   )
 end
@@ -158,9 +175,12 @@ HealthInsurer.create([
   [
     name: 'Bradesco Seguros',
     description: Faker::Lorem.sentence
+  ],
+  [
+    name: 'Caixa',
+    description: Faker::Lorem.sentence
   ]
-]
-)
+])
 
 HealthPlan.create([
   [
@@ -182,14 +202,51 @@ HealthPlan.create([
     name: 'Bradesco Seguros',
     description: Faker::Lorem.sentence,
     health_insurer_id: 3
+  ],
+  [
+    name: 'Saíde caixa',
+    description: Faker::Lorem.sentence,
+    health_insurer_id: 4
   ]
-]
-)
+])
 
 10.times do
   OrganizationHealthPlanExpertise.create(
-    organization_id: [2, 3].sample,
+    organization_id: [1, 2, 3].sample,
     health_plan_id: rand(1..4),
-    expertise_id: rand(1..7)
+    expertise_id: rand(1..10)
+  )
+end
+
+5.times do
+  Interval.create(
+    description: 'intervalo de pessoas presentes',
+    start: rand(1..5),
+    finish: rand(40..200),
+    step: rand(10..20),
+    counts: rand(2..5)
+  )
+end
+
+10.times do |i|
+  OrganizationSetting.create(
+    interval_id: rand(1..5),
+    organization_id: i + 1
+  )
+end
+
+10.times do |i|
+  Occupancy.create(
+    start: rand(1..5),
+    finish: rand(5..20),
+    organization_id: i + 1
+  )
+end
+
+10.times do |i|
+  Report.create(
+    name: "Denúncia #{i}",
+    description: Faker::Lorem.sentence,
+    organization_id: i + 1
   )
 end

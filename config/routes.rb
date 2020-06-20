@@ -17,11 +17,13 @@ Rails.application.routes.draw do
     resources :organization_health_plan_expertises, except: :show
     resources :occupancies, only: :create
     resource :emergency_medics, only: %i[create destroy]
+    resources :reports, only: %i[index show]
   end
 
   root to: 'app#index'
   namespace :app do
     get '/', to: 'main#index'
     resources :organizations, only: %i[index show]
+    resources :reports, only: %i[new create]
   end
 end
