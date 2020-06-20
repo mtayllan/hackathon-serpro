@@ -5,7 +5,7 @@
  *= require shards-extras
 */
 
-.mind-bg {
+.mind-bg, body {
   background-color: #2794D5;
 }
 

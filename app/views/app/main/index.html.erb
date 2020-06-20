@@ -1,13 +1,6 @@
-<div class="mind-bg pb-5" style="height: 100%">
+<div class="pb-5" style="height: 100%">
   <div class="container">
-    <div class="row justify-content-center align-items-center no-gutters">
-      <div class="col text-center">
-        <%= image_tag 'mind.png', class: 'img-fluid', width: '200px' %>
-      </div>
-      <div class="col text-center">
-        <h1 class="text-primary"> Mind </h1>
-      </div>
-    </div>
+    <%= render partial: 'app/shared/top' %>
     <div class="row">
       <div class="col-12 text-center mb-2">
         <div class="dropdown">
@@ -15,15 +8,15 @@
             Adicione um critério de pesquisa
           </button>
           <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-            <button class="dropdown-item text-secondary" onclick="toggleVisibility('expertise-select')">
+            <button id="expertise-btn" class="dropdown-item text-secondary d-none" onclick="toggleVisibility('expertise')">
               <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
               Especialidade Médica
             </button>
-            <button class="dropdown-item text-secondary" onclick="toggleVisibility('plan-select')">
+            <button id="plan-btn" class="dropdown-item text-secondary d-none" onclick="toggleVisibility('plan')">
               <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
               Plano de Saúde
             </button>
-            <button class="dropdown-item text-secondary" onclick="toggleVisibility('unit-select')">
+            <button id="unit-btn" class="dropdown-item text-secondary" onclick="toggleVisibility('unit')">
               <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
               Tipo de Unidade
             </button>
@@ -41,7 +34,7 @@
           </select>
         </div>
         <div class="col-1">
-          <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('expertise-select')"></i>
+          <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('expertise')"></i>
         </div>
       </div>
       <div class="row align-items-center no-gutters mb-2" id="plan-select">
@@ -53,7 +46,7 @@
           </select>
         </div>
         <div class="col-1">
-          <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('plan-select')"></i>
+          <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('plan')"></i>
         </div>
       </div>
       <div class="row align-items-center no-gutters d-none" id="unit-select">
@@ -65,7 +58,7 @@
           </select>
         </div>
         <div class="col-1">
-          <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('unit-select')"></i>
+          <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('unit')"></i>
         </div>
       </div>
       <div class="row">
@@ -96,15 +89,18 @@
 
 <script>
   function toggleVisibility(id) {
-    const el = document.getElementById(id);
-    const sel = el.querySelector("select");
-    if (el.classList.contains('d-none')) {
-      el.classList.remove('d-none');
-      sel.disabled = false;
+    const selectContainer = document.getElementById(`${id}-select`);
+    const button = document.getElementById(`${id}-btn`)
+    const select = selectContainer.querySelector("select");
+    if (selectContainer.classList.contains('d-none')) {
+      selectContainer.classList.remove('d-none');
+      button.classList.add('d-none');
+      select.disabled = false;
     } else {
-      el.classList.add('d-none');
-      sel.disabled = true;
+      selectContainer.classList.add('d-none');
+      button.classList.remove('d-none');
+      select.disabled = true;
     }
-    $(sel).selectpicker('refresh');
+    $(select).selectpicker('refresh');
   }
 </script>
