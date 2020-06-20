@@ -70,7 +70,6 @@ Organization.create([
     neighborhood: Faker::Address.community,
     number: Faker::Address.building_number,
     zipcode: Faker::Address.zip_code,
-    neighborhood: Faker::Address.community,
     state: Faker::Address.state,
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude,
