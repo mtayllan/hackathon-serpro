@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faker'
 
 10.times do
@@ -15,6 +17,7 @@ end
   Address.create(
     city: Faker::Address.city,
     street: Faker::Address.street_name,
+    neighborhood: Faker::Address.community,
     number: Faker::Address.building_number,
     zipcode: Faker::Address.zip_code,
     state: Faker::Address.state,

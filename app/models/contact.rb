@@ -7,6 +7,7 @@ class Contact < ApplicationRecord
     phone: 1,
     whatsapp: 2,
     email: 3,
-    other: 4
+    other: 4,
+    emergency: 5
   }
 end
