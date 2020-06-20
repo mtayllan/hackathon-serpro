@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# rubocop:disable all
 
 class PerformSearch < ApplicationService
   def initialize(query)
@@ -6,15 +7,18 @@ class PerformSearch < ApplicationService
   end
 
   def call
+    search = { covid_attendance: @query[:covid].present? }
     if @query[:emergency]
-      Organization.joins(:organization_health_plan_expertises, medics: :expertises)
-                  .where(medics: { on_shift: true, expertises: { id: @query[:expertises] } })
-                  .where(covid_attendance: @query[:covid].present?)
-                  .where(organization_health_plan_expertises: { health_plan_id: @query[:plan] })
+      search[:medics] = { on_shift: true }
+      search[:medics][:expertises] = { id: @query[:expertises] } if @query[:expertises]
+      search[:organization_health_plan_expertises] = { health_plan_id: @query[:plan] } if @query[:plan]
+
+      Organization.joins(:organization_health_plan_expertises, medics: :expertises).where(search)
     else
-      Organization.joins(:organization_health_plan_expertises)
-                  .where(covid_attendance: @query[:covid].present?)
-                  .where(organization_health_plan_expertises: { health_plan_id: @query[:plan], expertise_id: @query[:expertise] })
-    end
+      search[:organization_health_plan_expertises] = {}
+      search[:organization_health_plan_expertises][:health_plan_id] = @query[:plan] if @query[:plan]
+      search[:organization_health_plan_expertises][:expertise_id] = @query[:expertise] if @query[:expertise]
+
+      Organization.joins(:organization_health_plan_expertises).where(search)
   end
 end
