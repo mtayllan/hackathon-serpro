@@ -1,0 +1,79 @@
+<div class="row mt-3">
+  <div id="cards" class="mb-2 w-100" style="padding-bottom: 1px">
+    <div class="example col-md-12 ml-auto mr-auto">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+          <span class="badge badge-info">Lista de unidades</span>
+          <div class="card">
+            <div class="card-header">
+              <div>
+              <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-12"><img src="/virus_icon.svg" class="mr-2" alt="virus">Atende pacientes COVID-19</div>
+                <div class="col-md-6 col-lg-6 col-sm-12"><img src="/emergency_alarm.svg" class="mr-2 ml-1" alt="sirene">Possui Pronto-Atendimento</div>
+              </div>
+
+              </div>
+            </div>
+            <hr style="margin-top: 0px">
+            <% @organizations.each do |organization| %>
+              <div class="card-body" style="padding-top: 0.1rem; padding-bottom: 0.1rem;">
+                <!-- hospital name and symbols-->
+                <div class="row d-flex justify-content-between">
+
+                  <!-- Hospital name -->
+                  <div class="row <%= list_classes(organization) %>%">
+                    <button type="button" class="btn btn-pill btn-primary text-dark shadow" style="padding: 1px 10px 1px 10px; height: 30px;">
+                      <b> > </b>
+                    </button>
+                    <h5 class="card-title col-10"><%= organization.name %></h5>
+                  </div>
+
+                  <!-- Symbols -->
+                  <% if covid_attendance_or_emergency(organization) %>
+                    <div class="col-1 col-sm-3 col-md-2 mr-2">
+                      <% if organization.covid_attendance? %>
+                        <img src="/virus_icon.svg" class="mr-2" alt="virus">
+                      <% end %>
+
+                      <% if organization.has_emergency? %>
+                        <img src="/emergency_alarm.svg" alt="sirene">
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+
+                <!-- Organization info -->
+                <div>
+                  <div class="ml-4 mb-2 row">
+                    <img src="/simbolo_gps.svg" alt="gps">
+                    <div class="col-10">
+                      <%= complete_address(organization.address) %>
+                    </div>
+                  </div>
+
+                  <div class="ml-4 row">
+                    <img src="/simbolo_hospital.svg" alt="gps">
+                    <div class="col-10">
+                      <%= organization.kind %>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Distance -->
+                <div class="d-flex flex-row-reverse text-right">Distância:</div>
+                <div class="d-flex flex-row-reverse text-right text-dark" style="font-size:20px;">
+                  <%= rand(1.2..5.0).round(2) %> km
+                </div>
+
+              </div>
+              <hr>
+            <%end%>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
