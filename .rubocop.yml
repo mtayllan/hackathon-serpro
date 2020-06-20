@@ -12,3 +12,5 @@ Naming/AccessorMethodName:
   Enabled: false
 Layout/LineLength:
   Max: 110
+AllCops:
+  NewCops: enable

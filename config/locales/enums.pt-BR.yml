@@ -1,0 +1,14 @@
+pt-BR:
+  enums:
+    contact:
+      kind:
+        phone: Telefone
+        email: E-mail
+        whatsapp: Whatsapp
+        other: Outro
+    organization:
+      kind:
+        public_hospital: Hospital Público
+        private_hospital: Hospital Privado
+        clinic: Clínina
+        upa: UPA

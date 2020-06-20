@@ -28,6 +28,7 @@ end
 group :development do
   gem 'listen', '~> 3.2'
   gem 'pry-rails'
+  gem 'pry-nav'
   gem 'rubocop'
   gem 'rubycritic'
   gem 'solargraph'
