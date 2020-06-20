@@ -12,4 +12,8 @@ module MainHelper
       'col-12 col-sm-12 col-md-12'
     end
   end
+
+  def complete_address(address)
+    "#{address.street}, #{address.number}, #{address.neighborhood} "
+  end
 end

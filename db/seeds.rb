@@ -11,12 +11,13 @@ require 'faker'
   )
 end
 
-10.times do |i|
+11.times do |i|
   Address.create(
     city: Faker::Address.city,
     street: Faker::Address.street_name,
     number: Faker::Address.building_number,
     zipcode: Faker::Address.zip_code,
+    neighborhood: Faker::Address.community,
     state: Faker::Address.state,
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude,
@@ -24,7 +25,7 @@ end
   )
 end
 
-10.times do |i|
+11.times do |i|
   Contact.create(
     kind: rand(1..2),
     value: Faker::PhoneNumber.phone_number,
@@ -55,7 +56,7 @@ end
   )
 end
 
-10.times do
+11.times do
   org_id = rand(1..10)
   shift = if Organization.find(org_id).has_emergency?
             [true, false].sample
@@ -109,14 +110,14 @@ end
   )
 end
 
-10.times do |i|
+11.times do |i|
   OrganizationSetting.create(
     interval_id: rand(1..5),
     organization_id: i
   )
 end
 
-10.times do |i|
+11.times do |i|
   Occupancy.create(
     start: rand(1..5),
     finish: rand(5..20),
