@@ -16,7 +16,7 @@ class ContactDatatable < BaseDatatable
     records.map do |record|
       {
         id: record.id,
-        kind: record.kind,
+        kind: record.kind_i18n,
         value: record.value,
         actions: edit_link(edit_dashboard_contact_path(record.id)) +
           destroy_link(dashboard_contact_path(record.id))

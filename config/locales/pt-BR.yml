@@ -7,6 +7,38 @@ pt-BR:
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
+    attributes:
+      medic:
+        name: Nome
+        image: Imagem
+      organization:
+        name: Nome
+        images: Imagens
+        cnes: CNES
+        covid_attendance: Atende COVID
+        cnpj: CNPJ
+      organization_setting:
+        interval_id: Intervalo de lotação
+      address:
+        zipcode: CEP
+        state: Estado
+        city: Cidade
+        street: Rua
+        neighborhood: Bairro
+        number: Número
+      organization_health_plan_expertise:
+        expertise: Especialidade
+        health_plan: Plano de Saúde
+      contact:
+        kind: Tipo
+        value: Valor
+  enums:
+    contact:
+      kind:
+        phone: Telefone
+        email: E-mail
+        whatsapp: Whatsapp
+        other: Outro
   date:
     abbr_day_names:
     - Dom
