@@ -22,7 +22,7 @@
 
                   <!-- Hospital name -->
                   <div class="row <%= list_classes(organization) %>%">
-                    <button type="button" class="btn btn-pill btn-primary text-dark" style="padding: 1px 10px 1px 10px; height: 30px;">
+                    <button type="button" class="btn btn-pill btn-primary text-dark shadow" style="padding: 1px 10px 1px 10px; height: 30px;">
                       <b> > </b>
                     </button>
                     <h5 class="card-title col-10"><%= organization.name %></h5>
@@ -43,18 +43,26 @@
                 </div>
 
                 <!-- Organization info -->
-                <div class="ml-4 mb-2 row">
-                  <img src="/simbolo_gps.svg" alt="gps">
-                  <div class="col-10">
-                    <%= complete_address(organization.address) %>
+                <div>
+                  <div class="ml-4 mb-2 row">
+                    <img src="/simbolo_gps.svg" alt="gps">
+                    <div class="col-10">
+                      <%= complete_address(organization.address) %>
+                    </div>
+                  </div>
+
+                  <div class="ml-4 row">
+                    <img src="/simbolo_hospital.svg" alt="gps">
+                    <div class="col-10">
+                      <%= organization.kind %>
+                    </div>
                   </div>
                 </div>
 
-                <div class="ml-4 row">
-                  <img src="/simbolo_hospital.svg" alt="gps">
-                  <div class="col-10">
-                    <%= organization.kind %>
-                  </div>
+                <!-- Distance -->
+                <div class="d-flex flex-row-reverse text-right">Distância:</div>
+                <div class="d-flex flex-row-reverse text-right text-dark" style="font-size:20px;">
+                  <%= rand(1.2..5.0).round(2) %> km
                 </div>
 
               </div>
