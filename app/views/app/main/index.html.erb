@@ -123,6 +123,14 @@
       }
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
+
+    document.addEventListener('turbolinks:load', () => {
+      const bsSelectsLength = document.querySelectorAll('.bootstrap-select').length;
+      const selectsLength = document.querySelectorAll('.selectpicker').length;
+      if (bsSelectsLength != selectsLength) {
+        $('.selectpicker').selectpicker('refresh');
+      }
+    });
   </script>
 
 </body>
