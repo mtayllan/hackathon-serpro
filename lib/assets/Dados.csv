@@ -1,0 +1,18 @@
+name;kind;covid_attendance;has_emergency;hours;scheduling;city;state;street;number
+Hospital Jório da Escóssia;1;true;true;08:00-23:00;true;Fortaleza ;Ceará;Av. Antônio Sales;3443
+Hapclínica Padre Antônio Tomaz;1;false;true;09:00-20:00;true;Fortaleza ;Ceará;Av. Padre Antônio Tomás;2030
+Hospital São Mateus;5;false;true;Aberto 24h;true;Fortaleza ;Ceará;Av. Santos Dumont;5633
+Hospital Maternidade Dunas;2;false;false;Aberto 24h;false;Fortaleza ;Ceará;Av. Engenheiro Alberto Sá;1140
+Cintipraxis Medicina Nuclear;2;false;false;08:00-23:00;true;Fortaleza ;Ceará;Av. Santos Dumont;5753
+Hospital Aldeota;5;false;true;Aberto 24h;true;Fortaleza ;Ceará;Av. Padre Antônio Tomás;2056
+Clínica Aldeota;2;false;false;09:00-20:00;true;Fortaleza ;Ceará;Rua Monsenhor Bruno;1902
+Hospital Leonardo Da Vinci;1;false;false;09:00-20:00;true;Fortaleza ;Ceará;Rua Padre Valdevino N;1870
+Pronto Clínica De Fortaleza;1;false;false;09:00-20:00;true;Fortaleza ;Ceará;Av. João Pessoa;4408
+UPA Autran Nunes;1;false;true;Aberto 24h;false;Fortaleza ;Ceará;Av. Senador Fernandes Távora;2433
+UPA Praia do Futuro;1;false;true;Aberto 24h;false;Fortaleza ;Ceará;Rua Júlio Silva;440
+Hospital São Camilo Cura d´Ars;1;true;true;Aberto 24h;true;Fortaleza ;Ceará;Rua Costa Barros;833
+Hospital Haroldo Juaçaba - HHJ;1;true;true;Aberto 24h;true;Fortaleza ;Ceará;Rua Papi Júnior;1222
+Hospital Unimed;1;false;true;Aberto 24h;true;Fortaleza ;Ceará;Av. Visconde do Rio Branco;4000
+Hospital Monte Klinikum;1;false;false;Aberto 24h;false;Fortaleza ;Ceará;Rua República do Líbano;747
+Hospital Otoclínica;1;false;true;Aberto 24h;true;Fortaleza ;Ceará;Av. Antônio Sales;990
+Hospital São Carlos;1;true;true;08:00-23:00;true;Fortaleza ;Ceará;Av. Pontes Vieira;2531

@@ -20,58 +20,29 @@ end
 
 puts 'Criando orgs'
 
-Organization.create(
-  [
+csv = CSV.read('lib/assets/Dados.csv', 'r:ISO-8859-1', headers: true, col_sep: ';').to_a
+csv.shift
+
+csv.each do |row|
+  Organization.create(
     {
-      name: 'Hospital Geral de Fortaleza 1',
-      kind: 0,
+      name: row[0],
+      kind: Organization.kinds.keys[row[1].to_i],
+      covid_attendance: row[2],
+      has_emergency: row[3],
+      hours: row[4],
+      scheduling: row[5],
       cnes: Faker::IDNumber.south_african_id_number,
-      covid_attendance: true,
       cnpj: Faker::IDNumber.valid,
-      has_emergency: true,
-      scheduling: true,
-      hours: 'Segunda - Sábado de 8h às 22h',
       address_attributes: {
-        city: 'Itapipoca',
-        state: 'Ceará',
-        street: 'Rua Caio Prado',
-        number: '1045'
-      }
-    },
-    {
-      name: 'Hospital Cearense de Medicina 2',
-      kind: 1,
-      cnes: Faker::IDNumber.south_african_id_number,
-      covid_attendance: false,
-      cnpj: Faker::IDNumber.valid,
-      has_emergency: true,
-      hours: 'Aberto 24h',
-      scheduling: false,
-      address_attributes: {
-        city: 'Itapipoca',
-        state: 'Ceará',
-        street: 'Av Duque de Caxias',
-        number: '553'
-      }
-    },
-    {
-      name: 'Clínica Multi Especialidades 3',
-      kind: 2,
-      cnes: Faker::IDNumber.south_african_id_number,
-      covid_attendance: false,
-      cnpj: Faker::IDNumber.valid,
-      has_emergency: false,
-      hours: 'Segunda-Domingo de 5h-18h',
-      scheduling: true,
-      address_attributes: {
-        city: 'Itapipoca',
-        state: 'Ceará',
-        street: 'Rua Chico Viriato',
-        number: '357'
+        city: row[6],
+        state: row[7],
+        street: row[8],
+        number: row[9]
       }
     }
-  ]
-)
+  )
+end
 
 puts 'Criando contatos'
 
