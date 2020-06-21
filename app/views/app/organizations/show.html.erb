@@ -67,13 +67,15 @@
                   </div>
                   <ul class="list-group list-group-flush">
                     <% @organization.health_plans.each do |hp| %>
-                      <li class="list-group-item mind-bg text-white py-0 pl-2"><small><%= hp.name %></small></li>
+                      <li class="list-group-item mind-bg text-white py-0 pl-2 d-flex justify-content-between">
+                        <small class="mt-1 mb-1"><%= hp.name %></small><i class="fa fa-info-circle mt-1 mb-1" aria-hidden="true"></i>
+                        </li>
                     <% end %>
                   </ul>
                 </div>
               </div>
               <div class="col-6">
-                <% @organization.contacts.each do |contact| %>
+                <% @organization.contacts.order(:kind).each do |contact| %>
                   <% if contact.phone? %>
                     <div class="media m-1 media-sm">
                       <%= image_tag 'phone.svg', class: 'align-self-center mr-1' %>
@@ -82,7 +84,10 @@
                       </div>
                     </div>
                   <% elsif contact.whatsapp?%>
-                    <%= link_to 'Whatsapp', "https://wa.me/55#{contact.value.delete("^0-9")}" ,class: 'btn btn-success text-white text-shadow btn-block' %>
+                    <%= link_to "https://wa.me/55#{contact.value.delete("^0-9")}" do %>
+                      <button class="btn btn-success text-white text-shadow btn-block mb-2"><i class="fa fa-whatsapp mr-1" aria-hidden="true"></i><%=contact.value%></button>
+                    <% end %>
+                    <%#= link_to "#{contact.value}", "https://wa.me/55#{contact.value.delete("^0-9")}" ,class: 'btn btn-success text-white text-shadow btn-block' %>
                   <% end %>
                 <% end %>
               </div>
