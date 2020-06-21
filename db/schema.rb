@@ -168,6 +168,8 @@ ActiveRecord::Schema.define(version: 2020_06_20_200450) do
     t.string "cnes"
     t.boolean "covid_attendance"
     t.string "cnpj"
+    t.string "hours"
+    t.boolean "scheduling"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "has_emergency"

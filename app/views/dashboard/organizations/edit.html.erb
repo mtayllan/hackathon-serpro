@@ -23,8 +23,16 @@
         <%= f.label :covid_attendance %>
       </div>
       <div class="form-group">
+        <%= f.check_box :scheduling %>
+        <%= f.label :scheduling %>
+      </div>
+      <div class="form-group">
         <%= f.label :cnpj %>
         <%= f.text_field :cnpj, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :hours %>
+        <%= f.text_field :hours, class: 'form-control' %>
       </div>
       <%= f.fields_for :organization_setting do |ff| %>
         <div class="form-group">

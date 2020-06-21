@@ -20,50 +20,58 @@ end
 
 puts 'Criando orgs'
 
-Organization.create([
-  {
-    name: 'Hospital Geral de Fortaleza 1',
-    kind: 0,
-    cnes: Faker::IDNumber.south_african_id_number,
-    covid_attendance: true,
-    cnpj: Faker::IDNumber.valid,
-    has_emergency: true,
-    address_attributes: {
-      city: 'Itapipoca',
-      state: 'Ceará',
-      street: 'Rua Caio Prado',
-      number: '1045'
+Organization.create(
+  [
+    {
+      name: 'Hospital Geral de Fortaleza 1',
+      kind: 0,
+      cnes: Faker::IDNumber.south_african_id_number,
+      covid_attendance: true,
+      cnpj: Faker::IDNumber.valid,
+      has_emergency: true,
+      scheduling: true,
+      hours: 'Segunda - Sábado de 8h às 22h',
+      address_attributes: {
+        city: 'Itapipoca',
+        state: 'Ceará',
+        street: 'Rua Caio Prado',
+        number: '1045'
+      }
+    },
+    {
+      name: 'Hospital Cearense de Medicina 2',
+      kind: 1,
+      cnes: Faker::IDNumber.south_african_id_number,
+      covid_attendance: false,
+      cnpj: Faker::IDNumber.valid,
+      has_emergency: true,
+      hours: 'Aberto 24h',
+      scheduling: false,
+      address_attributes: {
+        city: 'Itapipoca',
+        state: 'Ceará',
+        street: 'Av Duque de Caxias',
+        number: '553'
+      }
+    },
+    {
+      name: 'Clínica Multi Especialidades 3',
+      kind: 2,
+      cnes: Faker::IDNumber.south_african_id_number,
+      covid_attendance: false,
+      cnpj: Faker::IDNumber.valid,
+      has_emergency: false,
+      hours: 'Segunda-Domingo de 5h-18h',
+      scheduling: true,
+      address_attributes: {
+        city: 'Itapipoca',
+        state: 'Ceará',
+        street: 'Rua Chico Viriato',
+        number: '357'
+      }
     }
-  },
-  {
-    name: 'Hospital Cearense de Medicina 2',
-    kind: 1,
-    cnes: Faker::IDNumber.south_african_id_number,
-    covid_attendance: false,
-    cnpj: Faker::IDNumber.valid,
-    has_emergency: true,
-    address_attributes: {
-      city: 'Itapipoca',
-      state: 'Ceará',
-      street: 'Av Duque de Caxias',
-      number: '553'
-    }
-  },
-  {
-    name: 'Clínica Multi Especialidades 3',
-    kind: 2,
-    cnes: Faker::IDNumber.south_african_id_number,
-    covid_attendance: false,
-    cnpj: Faker::IDNumber.valid,
-    has_emergency: false,
-    address_attributes: {
-      city: 'Itapipoca',
-      state: 'Ceará',
-      street: 'Rua Chico Viriato',
-      number: '357'
-    }
-  }
-])
+  ]
+)
 
 puts 'Criando contatos'
 
@@ -193,7 +201,7 @@ Organization.all.each do |org|
   )
 end
 
-10.times do |i|
+10.times do |_i|
   Occupancy.create(
     start: rand(1..5),
     finish: rand(5..20),

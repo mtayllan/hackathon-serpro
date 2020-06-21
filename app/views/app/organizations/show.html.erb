@@ -28,31 +28,38 @@
                   <div class="media m-1 media-sm">
                     <%= image_tag 'health.svg', class: 'align-self-center mr-1' %>
                     <div class="media-body align-self-center">
-                      Hospital Particular <small>Agendamento</small>
+                      <%= @organization.kind_i18n %>
+                      <% if @organization.scheduling? %>
+                        <small>Agendamento</small>
+                      <% end %>
                     </div>
                   </div>
                 </div>
-                <div class="col-6 pr-0">
-                  <div class="media m-1 media-sm">
-                    <%= image_tag 'covid.png', class: 'align-self-center mr-1' %>
-                    <div class="media-body align-self-center">
-                      Atende Pacientes COVID-19
+                <% if @organization.covid_attendance? %>
+                  <div class="col-6 pr-2">
+                    <div class="media m-1 media-sm">
+                      <%= image_tag 'covid.png', class: 'align-self-center mr-1' %>
+                      <div class="media-body align-self-center">
+                        Atende Pacientes COVID-19
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               </div>
               <div class="media m-1 media-sm">
                 <%= image_tag 'clock.svg', class: 'align-self-center mr-1' %>
                 <div class="media-body align-self-center">
-                  Aberto (8:00 - 22:00)
+                  <%= @organization.hours %>
                 </div>
               </div>
-              <div class="media m-1 media-sm">
-                <%= image_tag 'emergency.svg', class: 'align-self-center mr-1' %>
-                <div class="media-body align-self-center">
-                  Possui Pronto-Atendimento (24h)
+              <% if @organization.has_emergency? %>
+                <div class="media m-1 media-sm">
+                  <%= image_tag 'emergency.svg', class: 'align-self-center mr-1' %>
+                  <div class="media-body align-self-center">
+                    Possui Pronto-Atendimento (24h)
+                  </div>
                 </div>
-              </div>
+              <% end %>
               <div class="row mt-3">
                 <div class="col-6">
                   <div class="card">
@@ -76,7 +83,7 @@
                         </div>
                       </div>
                     <% elsif contact.whatsapp?%>
-                      <%= link_to 'Whatsapp', "https://wa.me/55#{contact.value.delete("^0-9")}" ,class: 'btn btn-primary text-white text-shadow btn-block' %>
+                      <%= link_to 'Whatsapp', "https://wa.me/55#{contact.value.delete("^0-9")}" ,class: 'btn btn-success text-white text-shadow btn-block' %>
                     <% end %>
                   <% end %>
                 </div>
@@ -150,32 +157,30 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center text-white">
+    <div class="col">
+      Informações desatualizadas?
+      <button class="btn btn-primary btn-pill mb-2 ml-1 btn-sm shadow" data-toggle="modal" data-target="#reportModal">
+        <%= image_tag '/danger.svg', class: 'align-self-center mr-1' %>
+        Reporte aqui
+      </button>
+    </div>
+  </div>
 
-        <div class="row">
-          <div class="mx-auto">
-          Informações desatualizadas?
-          <button class="btn btn-primary btn-pill mb-2 ml-1 btn-sm shadow" data-toggle="modal" data-target="#reportModal">
-            <%= image_tag '/danger.svg', class: 'align-self-center mr-1' %>
-            Reporte aqui
+  <!-- Modal Body -->
+  <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reportModalLabel">Denuncie</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
           </button>
-          </div>
         </div>
-
-        <!-- Modal Body -->
-        <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="reportModalLabel">Denuncie</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <%= render partial: 'report_form' %>
-            </div>
-          </div>
-        </div>
-
+        <%= render partial: 'report_form' %>
       </div>
     </div>
   </div>
