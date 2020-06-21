@@ -20,9 +20,10 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 gem 'rails_admin'
 gem 'ransack'
 
+gem 'faker'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'faker'
 end
 
 group :development do
