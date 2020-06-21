@@ -2,6 +2,8 @@
   position: relative;
   height: 100vh;
   min-height: 700px;
+  background: url('/stethoscope.jpg') no-repeat center center fixed;
+  background-size:cover
 }
 .shards-app-promo-page--1 .welcome:before {
   position: absolute;
@@ -11,7 +13,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.9;
+  opacity: 0.8;
+  background: #2794D5;
 }
 @media (max-width: 991.98px) {
   .shards-app-promo-page--1 .welcome {

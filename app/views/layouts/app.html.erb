@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Healthapp</title>
+    <title>Mind</title>
     <link href="https://fonts.googleapis.com/css2?family=Share&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    'app', media: 'all' %>
     <%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
+
+    <%= render partial: 'layouts/shared/icons' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= yield %>
 </html>

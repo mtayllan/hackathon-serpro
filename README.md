@@ -1,24 +1,35 @@
-# README
+![](https://i.imgur.com/9GVyOgQ.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Mind
 
-Things you may want to cover:
+Mind (do inglês, cuidar) é uma **aplicação web** com adaptação para PWA (Progressive Web App) que permite que qualquer pessoa possa encontrar uma unidade de saúde ideal e mais próxima para ser atendido.
 
-* Ruby version
+## Tecnologias
 
-* System dependencies
+* [Ruby 2.6.5](https://www.ruby-lang.org/pt/)
+* [Rails 6.0.3](https://rubyonrails.org/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Yarn](https://yarnpkg.com/)
 
-* Configuration
+## Iniciando o projeto
+1. O projeto tem como base principal o Ruby on Rails. Para fazer a instalação, você pode utilizar o seguinte guia: https://gorails.com/setup/ubuntu/20.04
+(Atenção: no tutorial, use o rbenv! Nele aparece a versão do Ruby 2.6.6, onde estiver isso, troque para 2.6.5).
 
-* Database creation
+2. Faça o clone do repositório
 
-* Database initialization
+3. Execute os comandos:
+```
+  gem install bundler:2.1.2
+  bundle install
+  bundle exec rails db:create db:migrate
+  yarn
+```
 
-* How to run the test suite
+4. Por fim, para levantar o servidor: `bundle exec rails c` e visite http://localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Ele deve baixar todas as dependências do projeto (gems e módulos do node) e ter criado o banco de dados com sucesso.
 
-* ...
+Caso queira, inicialmente, popular o banco de dados, rode `rails db:seed`.
+
+Caso tenha problemas com a instalação, você pode ver o app de demonstração no Heroku [aqui](https://mindd.herokuapp.com/).

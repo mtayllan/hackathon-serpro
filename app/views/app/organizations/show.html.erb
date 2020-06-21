@@ -1,38 +1,41 @@
-<div class="container-fluid">
-  <%= render partial: 'app/shared/top' %>
-  <div class="row ">
-    <div class="example col-md-12 ml-auto mr-auto">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-          <div class="card organization-card">
-            <div class="card-body p-2">
-              <div class="row">
-                <div class="col-12">
-                  <h6 class="card-title">
-                    <i class="fa fa-chevron-left mr-1" aria-hidden="true" onclick='history.back();'></i>
-                    <%= @organization.name %>
-                  </h6>
-                </div>
-                <div class="col-12">
-                  <%= image_tag @organization.featured_image, class: 'img-fluid rounded mx-auto d-block' %>
-                </div>
+<body class="mind-bg">
+  <div class="container" style="max-width: 540px">
+    <%= render partial: 'app/shared/top' %>
+    <div class="row align-items-center">
+      <div class="col">
+        <div class="card organization-card">
+          <div class="card-body p-2">
+            <div class="row">
+              <div class="col-12">
+                <h6 class="card-title">
+                  <i class="fa fa-chevron-left mr-1" aria-hidden="true" onclick='history.back();'></i>
+                  <%= @organization.name %>
+                </h6>
               </div>
-              <div class="media m-1 media-sm">
-                <%= image_tag 'localization.svg', class: 'align-self-center mr-1' %>
-                <div class="media-body align-self-center">
-                  <%= @organization.address.to_s %>
-                </div>
+              <div class="col-12">
+                <%= image_tag @organization.featured_image, class: 'img-fluid rounded mx-auto d-block' %>
               </div>
-              <div class="row align-items-center">
-                <div class="col-6 pr-0">
-                  <div class="media m-1 media-sm">
-                    <%= image_tag 'health.svg', class: 'align-self-center mr-1' %>
-                    <div class="media-body align-self-center">
-                      Hospital Particular <small>Agendamento</small>
-                    </div>
+            </div>
+            <div class="media m-1 media-sm">
+              <%= image_tag 'localization.svg', class: 'align-self-center mr-1' %>
+              <div class="media-body align-self-center">
+                <%= @organization.address.to_s %>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-6 pr-0">
+                <div class="media m-1 media-sm">
+                  <%= image_tag 'health.svg', class: 'align-self-center mr-1' %>
+                  <div class="media-body align-self-center">
+                    <%= @organization.kind_i18n %>
+                    <% if @organization.scheduling? %>
+                      <small>Agendamento</small>
+                    <% end %>
                   </div>
                 </div>
-                <div class="col-6 pr-0">
+              </div>
+              <% if @organization.covid_attendance? %>
+                <div class="col-6 pr-2">
                   <div class="media m-1 media-sm">
                     <%= image_tag 'covid.png', class: 'align-self-center mr-1' %>
                     <div class="media-body align-self-center">
@@ -40,143 +43,143 @@
                     </div>
                   </div>
                 </div>
+              <% end %>
+            </div>
+            <div class="media m-1 media-sm">
+              <%= image_tag 'clock.svg', class: 'align-self-center mr-1' %>
+              <div class="media-body align-self-center">
+                <%= @organization.hours %>
               </div>
-              <div class="media m-1 media-sm">
-                <%= image_tag 'clock.svg', class: 'align-self-center mr-1' %>
-                <div class="media-body align-self-center">
-                  Aberto (8:00 - 22:00)
-                </div>
-              </div>
+            </div>
+            <% if @organization.has_emergency? %>
               <div class="media m-1 media-sm">
                 <%= image_tag 'emergency.svg', class: 'align-self-center mr-1' %>
                 <div class="media-body align-self-center">
                   Possui Pronto-Atendimento (24h)
                 </div>
               </div>
-              <div class="row mt-3">
-                <div class="col-6">
-                  <div class="card">
-                    <div class="card-header bg-primary text-white text-shadow p-0 text-center">
-                      Planos
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <% @organization.health_plans.each do |hp| %>
-                        <li class="list-group-item mind-bg text-white py-0 pl-2"><small><%= hp.name %></small></li>
-                      <% end %>
-                    </ul>
+            <% end %>
+            <div class="row mt-3">
+              <div class="col-6">
+                <div class="card">
+                  <div class="card-header bg-primary text-white text-shadow p-0 text-center">
+                    Planos
                   </div>
+                  <ul class="list-group list-group-flush">
+                    <% @organization.health_plans.each do |hp| %>
+                      <li class="list-group-item mind-bg text-white py-0 pl-2"><small><%= hp.name %></small></li>
+                    <% end %>
+                  </ul>
                 </div>
-                <div class="col-6">
-                  <% @organization.contacts.each do |contact| %>
-                    <% if contact.phone? %>
-                      <div class="media m-1 media-sm">
-                        <%= image_tag 'phone.svg', class: 'align-self-center mr-1' %>
-                        <div class="media-body align-self-center">
-                          <%= contact.value %>
+              </div>
+              <div class="col-6">
+                <% @organization.contacts.each do |contact| %>
+                  <% if contact.phone? %>
+                    <div class="media m-1 media-sm">
+                      <%= image_tag 'phone.svg', class: 'align-self-center mr-1' %>
+                      <div class="media-body align-self-center">
+                        <%= contact.value %>
+                      </div>
+                    </div>
+                  <% elsif contact.whatsapp?%>
+                    <%= link_to 'Whatsapp', "https://wa.me/55#{contact.value.delete("^0-9")}" ,class: 'btn btn-success text-white text-shadow btn-block' %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <% if @organization.has_emergency? %>
+              <div class="card text-white mt-3">
+                <div class="card-header bg-primary text-shadow p-0 text-center">
+                  Médicos de Pronto-Atendimento
+                </div>
+                <div class="card-body mind-bg p-2">
+                  <div class="row">
+                    <% if (phone = @organization.contacts.emergency.first) %>
+                      <div class="col">
+                        <div class="media m-1 media-sm">
+                          <%= image_tag 'phone.svg', class: 'align-self-center mr-1' %>
+                          <div class="media-body align-self-center">
+                            <%= phone.value %>
+                          </div>
                         </div>
                       </div>
-                    <% elsif contact.whatsapp?%>
-                      <%= link_to 'Whatsapp', "https://wa.me/55#{contact.value.delete("^0-9")}" ,class: 'btn btn-primary text-white text-shadow btn-block' %>
                     <% end %>
+                    <% if (occupancy = @organization.occupancies.last) %>
+                      <div class="col">
+                        <div class="media m-1 media-sm">
+                          <%= image_tag 'clock_health.svg', class: 'align-self-center mr-1' %>
+                          <div class="media-body align-self-center">
+                            <b>Ocupação:</b> <br>
+                            <%= occupancy.to_s %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <table class="table table-sm text-white table-borderless">
+                        <thead>
+                          <tr>
+                            <th>Especialidade</th>
+                            <th>Ativo</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% @organization.medic_expertises.to_a.uniq.each do |me| %>
+                            <tr>
+                              <td><%= me.name %></td>
+                              <td><i class="fa fa-user" aria-hidden="true"></i> <%= me.medics.count %></td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <div class="card text-white mt-3">
+              <div class="card-header bg-primary text-white text-shadow p-0 text-center">
+                Especialidades
+              </div>
+              <div class="card-body mind-bg p-2">
+                <div class="row no-gutters">
+                  <% @organization.expertises.each do |exp| %>
+                    <div class="col-6">
+                      <%= exp.name %>
+                    </div>
                   <% end %>
                 </div>
               </div>
-              <% if @organization.has_emergency? %>
-                <div class="card text-white mt-3">
-                  <div class="card-header bg-primary text-shadow p-0 text-center">
-                    Médicos de Pronto-Atendimento
-                  </div>
-                  <div class="card-body mind-bg p-2">
-                    <div class="row">
-                      <% if (phone = @organization.contacts.emergency.first) %>
-                        <div class="col">
-                          <div class="media m-1 media-sm">
-                            <%= image_tag 'phone.svg', class: 'align-self-center mr-1' %>
-                            <div class="media-body align-self-center">
-                              <%= phone.value %>
-                            </div>
-                          </div>
-                        </div>
-                      <% end %>
-                      <% if (occupancy = @organization.occupancies.last) %>
-                        <div class="col">
-                          <div class="media m-1 media-sm">
-                            <%= image_tag 'clock_health.svg', class: 'align-self-center mr-1' %>
-                            <div class="media-body align-self-center">
-                              <b>Ocupação:</b> <br>
-                              <%= occupancy.to_s %>
-                            </div>
-                          </div>
-                        </div>
-                      <% end %>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <table class="table table-sm text-white table-borderless">
-                          <thead>
-                            <tr>
-                              <th>Especialidade</th>
-                              <th>Ativo</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <% @organization.medic_expertises.to_a.uniq.each do |me| %>
-                              <tr>
-                                <td><%= me.name %></td>
-                                <td><i class="fa fa-user" aria-hidden="true"></i> <%= me.medics.count %></td>
-                              </tr>
-                            <% end %>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-              <div class="card text-white mt-3">
-                <div class="card-header bg-primary text-white text-shadow p-0 text-center">
-                  Especialidades
-                </div>
-                <div class="card-body mind-bg p-2">
-                  <div class="row no-gutters">
-                    <% @organization.expertises.each do |exp| %>
-                      <div class="col-6">
-                        <%= exp.name %>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="row text-center text-white pt-3">
+      <div class="col">
+        Informações desatualizadas?
+        <button class="btn btn-primary btn-pill mb-2 ml-1 btn-sm shadow" data-toggle="modal" data-target="#reportModal">
+          <%= image_tag 'warn.svg', class: 'align-self-center mr-1' %>
+          Reporte aqui
+        </button>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="mx-auto">
-          Informações desatualizadas?
-          <button class="btn btn-primary btn-pill mb-2 ml-1 btn-sm shadow" data-toggle="modal" data-target="#reportModal">
-            <%= image_tag '/danger.svg', class: 'align-self-center mr-1' %>
-            Reporte aqui
-          </button>
+    <!-- Modal Body -->
+    <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="reportModalLabel">Denuncie</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+          <%= render partial: 'report_form' %>
         </div>
-
-        <!-- Modal Body -->
-        <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="reportModalLabel">Denuncie</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <%= render partial: 'report_form' %>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
-</div>
+</body>

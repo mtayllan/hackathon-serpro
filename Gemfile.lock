@@ -282,8 +282,6 @@ GEM
       simplecov (>= 0.17.0)
       tty-which (~> 0.4.0)
       virtus (~> 1.0)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -373,7 +371,6 @@ DEPENDENCIES
   ransack
   rubocop
   rubycritic
-  sass-rails (>= 6)
   solargraph
   spring
   spring-watcher-listen (~> 2.0.0)

@@ -1,108 +1,136 @@
-<div class="pb-5" style="height: 100%">
-  <div class="container">
-    <%= render partial: 'app/shared/top' %>
-    <div class="row">
-      <div class="col-12 text-center mb-2">
-        <div class="dropdown">
-          <button class="btn btn-primary btn-block text-white text-shadow dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Adicione um critério de pesquisa
-          </button>
-          <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-            <button id="expertise-btn" class="dropdown-item text-secondary d-none" onclick="toggleVisibility('expertise')">
-              <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
-              Especialidade Médica
-            </button>
-            <button id="plan-btn" class="dropdown-item text-secondary d-none" onclick="toggleVisibility('plan')">
-              <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
-              Plano de Saúde
-            </button>
-            <button id="unit-btn" class="dropdown-item text-secondary" onclick="toggleVisibility('unit')">
-              <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
-              Tipo de Unidade
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <%= form_with url: app_organizations_path, method: :get do |f| %>
-      <div class="row align-items-center no-gutters mb-2" id="expertise-select">
-        <div class="col-11">
-          <select name="q[expertises][]" title="Selecione uma ou mais especialidades" class="selectpicker" data-style="btn-light" data-live-search="true" data-width="100%" multiple>
-            <% @expertises.find_each do |expertise| %>
-              <option value="<%= expertise.id %>"><%= expertise.name %></option>
-            <% end %>
-          </select>
-        </div>
-        <div class="col-1">
-          <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('expertise')"></i>
-        </div>
-      </div>
-      <div class="row align-items-center no-gutters mb-2" id="plan-select">
-        <div class="col-11">
-          <select name="q[plan]" title="Selecione um plano de saúde" class="selectpicker" data-style="btn-light" data-live-search="true" data-width="100%">
-            <% @plans.find_each do |plan| %>
-              <option value="<%= plan.id %>"><%= plan.name %></option>
-            <% end %>
-          </select>
-        </div>
-        <div class="col-1">
-          <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('plan')"></i>
-        </div>
-      </div>
-      <div class="row align-items-center no-gutters d-none" id="unit-select">
-        <div class="col-11">
-          <select name="q[organizations][]" title="Selecione um ou mais tipos de unidade" class="selectpicker" data-style="btn-light" data-width="100%" multiple>
-            <% Organization.kinds_i18n.each do |kind| %>
-              <option value="<%= kind.first %>"><%= kind.second %></option>
-            <% end %>
-          </select>
-        </div>
-        <div class="col-1">
-          <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('unit')"></i>
-        </div>
-      </div>
+<body class="app-body">
+  <div class="pb-5" style="height: 100%">
+    <div class="container" style="max-width: 540px">
+      <%= render partial: 'app/shared/top' %>
       <div class="row">
-        <div class="col-12">
-          <div class="custom-control custom-checkbox d-block my-2">
-            <input type="checkbox" class="custom-control-input" id="ckEmergency" name="q[emergency]">
-            <label class="custom-control-label text-white" for="ckEmergency">Possui Pronto-Atendimento (24h)</label>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="custom-control custom-checkbox d-block my-2">
-            <input type="checkbox" class="custom-control-input" id="ckCovid" name="q[covid]">
-            <label class="custom-control-label text-white" for="ckCovid">Somente com atendimentos a Covid (24h)</label>
+        <div class="col-12 text-center mb-2">
+          <div class="dropdown">
+            <button class="btn btn-primary btn-block text-white text-shadow dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Adicione um critério de pesquisa
+            </button>
+            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+              <button id="expertise-btn" class="dropdown-item text-secondary d-none" onclick="toggleVisibility('expertise')">
+                <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
+                Especialidade Médica
+              </button>
+              <button id="plan-btn" class="dropdown-item text-secondary d-none" onclick="toggleVisibility('plan')">
+                <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
+                Plano de Saúde
+              </button>
+              <button id="unit-btn" class="dropdown-item text-secondary" onclick="toggleVisibility('unit')">
+                <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i>
+                Tipo de Unidade
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <input type="hidden" name="latitude" value="">
-      <input type="hidden" name="longitude" value="">
-      <div class="row mt-5">
-        <div class="col">
-          <button class="btn btn-primary text-white text-shadow btn-block" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Localize a unidade ideal!</button>
+      <%= form_with url: app_organizations_path, method: :get do |f| %>
+        <div class="row align-items-center no-gutters mb-2" id="expertise-select">
+          <div class="col-11">
+            <select name="q[expertises][]" title="Selecione uma ou mais especialidades" class="selectpicker" data-style="btn-light" data-live-search="true" data-width="100%" multiple>
+              <% @expertises.find_each do |expertise| %>
+                <option value="<%= expertise.id %>"><%= expertise.name %></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="col-1">
+            <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('expertise')"></i>
+          </div>
         </div>
+        <div class="row align-items-center no-gutters mb-2" id="plan-select">
+          <div class="col-11">
+            <select name="q[plan]" title="Selecione um plano de saúde" class="selectpicker" data-style="btn-light" data-live-search="true" data-width="100%">
+              <% @plans.find_each do |plan| %>
+                <option value="<%= plan.id %>"><%= plan.name %></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="col-1">
+            <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('plan')"></i>
+          </div>
+        </div>
+        <div class="row align-items-center no-gutters d-none" id="unit-select">
+          <div class="col-11">
+            <select name="q[organizations][]" title="Selecione um ou mais tipos de unidade" class="selectpicker" data-style="btn-light" data-width="100%" multiple>
+              <% Organization.kinds_i18n.each do |kind| %>
+                <option value="<%= kind.first %>"><%= kind.second %></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="col-1">
+            <i class="fa fa-trash text-primary fa-2x ml-2 text-shadow" aria-hidden="true" onclick="toggleVisibility('unit')"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="custom-control custom-checkbox d-block my-2">
+              <input type="checkbox" class="custom-control-input" id="ckEmergency" name="q[emergency]">
+              <label class="custom-control-label text-white" for="ckEmergency">Possui Pronto-Atendimento (24h)</label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="custom-control custom-checkbox d-block my-2">
+              <input type="checkbox" class="custom-control-input" id="ckCovid" name="q[covid]">
+              <label class="custom-control-label text-white" for="ckCovid">Somente com atendimentos a COVID</label>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="latitude" value="">
+        <input type="hidden" name="longitude" value="">
+        <div class="row mt-5">
+          <div class="col">
+            <button class="btn btn-primary text-white text-shadow btn-block" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Localize a unidade ideal!</button>
+          </div>
+        </div>
+      <% end %>
+      <div id="organizations-list">
       </div>
-    <% end %>
-    <div id="organizations-list">
     </div>
   </div>
-</div>
 
 
-<script>
-  function toggleVisibility(id) {
-    const selectContainer = document.getElementById(`${id}-select`);
-    const button = document.getElementById(`${id}-btn`)
-    const select = selectContainer.querySelector("select");
-    if (selectContainer.classList.contains('d-none')) {
-      selectContainer.classList.remove('d-none');
-      button.classList.add('d-none');
-      select.disabled = false;
-    } else {
-      selectContainer.classList.add('d-none');
-      button.classList.remove('d-none');
-      select.disabled = true;
+  <script>
+    function toggleVisibility(id) {
+      const selectContainer = document.getElementById(`${id}-select`);
+      const button = document.getElementById(`${id}-btn`)
+      const select = selectContainer.querySelector("select");
+      if (selectContainer.classList.contains('d-none')) {
+        selectContainer.classList.remove('d-none');
+        button.classList.add('d-none');
+        select.disabled = false;
+      } else {
+        selectContainer.classList.add('d-none');
+        button.classList.remove('d-none');
+        select.disabled = true;
+      }
+      $(select).selectpicker('refresh');
     }
-    $(select).selectpicker('refresh');
-  }
-</script>
+
+    window.onload = () => {
+      const onSuccess = (position) => {
+        document.querySelector('input[name=latitude]').value = position.coords.latitude;
+        document.querySelector('input[name=longitude]').value = position.coords.longitude;
+        console.log('Posição encontrada :)');
+      }
+
+      const onError = (error) => {
+        console.log(error);
+        iziToast.error({
+          'message': 'Ops, não conseguimos encontrar sua localização para obter os resultados mais próximos'
+        });
+
+      }
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    document.addEventListener('turbolinks:load', () => {
+      const bsSelectsLength = document.querySelectorAll('.bootstrap-select').length;
+      const selectsLength = document.querySelectorAll('.selectpicker').length;
+      if (bsSelectsLength != selectsLength) {
+        $('.selectpicker').selectpicker('refresh');
+      }
+    });
+  </script>
+
+</body>
