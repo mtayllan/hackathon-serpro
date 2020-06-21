@@ -153,12 +153,28 @@
         <div class="row">
           <div class="mx-auto">
           Informações desatualizadas?
-          <button class="btn btn-primary btn-pill mb-2 ml-1 btn-sm shadow">
+          <button class="btn btn-primary btn-pill mb-2 ml-1 btn-sm shadow" data-toggle="modal" data-target="#reportModal">
             <%= image_tag '/danger.svg', class: 'align-self-center mr-1' %>
             Reporte aqui
           </button>
           </div>
         </div>
+
+        <!-- Modal Body -->
+        <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="reportModalLabel">Denuncie</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <%= render partial: 'report_form' %>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

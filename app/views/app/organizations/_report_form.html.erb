@@ -1,0 +1,29 @@
+<%= form_with model: [:app, @report] do |f| %>
+  <div class="modal-body">
+    <div class="example col-lg-8 col-md-10 ml-auto mr-auto">
+      <div class="row mb-5">
+        <div class="col-md-12">
+          
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="form1-name" class="col-form-label">Motivo</label>
+                <%= f.text_field :name, class: "form-control", placeholder: "Nome"%>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="form1-name" class="col-form-label">Detalhes</label>
+                <%= f.text_area :description, class: "form-control", placeholder: "Detalhes"%>
+
+                <%= f.hidden_field :organization_id, value: @organization.id %>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <%= f.submit class: "btn btn-success" %>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+  </div>
+
+<% end %>
