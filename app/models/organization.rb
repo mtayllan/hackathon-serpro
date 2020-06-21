@@ -10,6 +10,7 @@ class Organization < ApplicationRecord
   has_many :organization_health_plan_expertises, dependent: :destroy
   has_many :health_plans, through: :organization_health_plan_expertises
   has_many :occupancies, dependent: :destroy
+  has_many :reports, dependent: :destroy
 
   has_many_attached :images
 

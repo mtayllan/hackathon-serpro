@@ -1,0 +1,46 @@
+<h1 class="h3 mb-2 text-gray-800">Denúncias</h1>
+<p class="mb-4">Aqui você pode visualizar as denúncias enviadas para sua organização.</p>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <div class="row align-items-center">
+      <div class="col">
+        <h5 class="m-0 font-weight-bold text-primary">Listagem de Denúncias</h5>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table id="reports-datatable" class="w-100 table" data-source="<%= dashboard_reports_path(user: current_organization_user, format: :json) %>">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Data</th>
+            <th>Mensagem</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(() => {
+    $('#reports-datatable').dataTable({
+      'processing': true,
+      'serverSide': true,
+      'ajax': {
+        'url': $('#reports-datatable').data('source')
+      },
+      'pagingType': 'full_numbers',
+      'columns': [
+        { 'data': 'id' },
+        { 'data': 'created_at' },
+        { 'data': 'description' },
+        { 'data': 'actions' }
+      ]
+    });
+  });
+</script>

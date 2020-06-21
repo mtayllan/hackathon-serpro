@@ -8,5 +8,6 @@ class App::OrganizationsController < AppController
 
   def show
     @organization = Organization.find(params[:id])
+    @report = Report.new
   end
 end

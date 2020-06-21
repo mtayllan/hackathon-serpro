@@ -12,14 +12,14 @@ require 'faker'
   )
 end
 
-4.times do |i|
+5.times do |i|
   OrganizationSetting.create(
     interval_id: rand(1..5),
     organization_id: i + 1
   )
 end
 
-4.times do |i|
+5.times do |i|
   Occupancy.create(
     start: rand(1..5),
     finish: rand(5..20),
@@ -152,7 +152,7 @@ end
 
 30.times do
   MedicExpertise.create(
-    expertise_id: rand(1..7),
+    expertise_id: rand(1..10),
     medic_id: rand(1..20)
   )
 end
@@ -201,8 +201,41 @@ HealthPlan.create(
 
 10.times do
   OrganizationHealthPlanExpertise.create(
-    organization_id: [2, 3].sample,
+    organization_id: [1, 2, 3].sample,
     health_plan_id: rand(1..4),
-    expertise_id: rand(1..7)
+    expertise_id: rand(1..10)
+  )
+end
+
+5.times do
+  Interval.create(
+    description: 'intervalo de pessoas presentes',
+    start: rand(1..5),
+    finish: rand(40..200),
+    step: rand(10..20),
+    counts: rand(2..5)
+  )
+end
+
+10.times do |i|
+  OrganizationSetting.create(
+    interval_id: rand(1..5),
+    organization_id: i + 1
+  )
+end
+
+10.times do |i|
+  Occupancy.create(
+    start: rand(1..5),
+    finish: rand(5..20),
+    organization_id: i + 1
+  )
+end
+
+10.times do |i|
+  Report.create(
+    name: "Denúncia #{i}",
+    description: Faker::Lorem.sentence,
+    organization_id: i + 1
   )
 end
