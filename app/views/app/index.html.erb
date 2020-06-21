@@ -28,16 +28,7 @@
             <!-- Social Icons -->
             <ul class="header-social-icons navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="https://twitter.com/DesignRevision"><i class="fa fa-twitter"></i></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.facebook.com/designrevision"><i class="fa fa-facebook"></i></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://dribbble.com/hisk"><i class="fa fa-dribbble"></i></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://github.com/designrevision"><i class="fa fa-github"></i></a>
+                <a class="nav-link" href="https://github.com/mtayllan/hackathon-serpro"><i class="fa fa-github"></i></a>
               </li>
             </ul>
           </div>
@@ -122,18 +113,18 @@
       <div class="container py-4">
         <div class="row justify-content-md-center px-4">
           <div class="contact-form col-sm-12 col-md-10 col-lg-7 p-4 mb-4 card">
-            <%= form_with url: '/post' do %>
+            <%= form_with url: solicitations_path do %>
               <div class="row">
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group">
                     <label for="contactFormFullName">Nome</label>
-                    <input name="contact[full_name]" class="form-control" id="contactFormFullName" placeholder="Insira seu nome">
+                    <input name="solicitation[name]" class="form-control" id="contactFormFullName" placeholder="Insira seu nome">
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group">
                     <label for="contactFormEmail">Endereço de email</label>
-                    <input name="contact[email]" type="email" class="form-control" id="contactFormEmail" placeholder="Insira seu endereço de email">
+                    <input name="solicitation[email]" type="email" class="form-control" id="contactFormEmail" placeholder="Insira seu endereço de email">
                   </div>
                 </div>
               </div>
@@ -141,7 +132,7 @@
                 <div class="col">
                   <div class="form-group">
                       <label for="exampleInputEmail1">Mensagem</label>
-                      <textarea id="exampleInputEmail1" class="form-control mb-4" rows="10" placeholder="Insira sua mensagem" name="contact[message]"></textarea>
+                      <textarea id="exampleInputEmail1" class="form-control mb-4" rows="10" placeholder="Insira sua mensagem" name="solicitation[message]"></textarea>
                   </div>
                 </div>
               </div>
@@ -155,7 +146,11 @@
 
     <!-- Footer Section -->
     <footer>
-
+      <div class="container">
+        <div class="text-center m-4">
+          <span>Feito com ❤️ de 🏠</span>
+        </div>
+      </div>
     </footer>
     <!-- / Footer Section -->
   </div>

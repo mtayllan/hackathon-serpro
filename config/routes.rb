@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   end
 
   root to: 'app#index'
+  resources :solicitations, only: :create
+
   namespace :app do
     get '/', to: 'main#index'
     resources :organizations, only: %i[index show]
