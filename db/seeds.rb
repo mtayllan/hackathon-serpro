@@ -30,7 +30,7 @@ end
 Organization.create(
   [
     [
-      name: 'Hospital Geral de Fortaleza',
+      name: 'Hospital Geral de Fortaleza 1',
       kind: 0,
       cnes: Faker::IDNumber.south_african_id_number,
       covid_attendance: true,
@@ -44,7 +44,7 @@ Organization.create(
       }
     ],
     [
-      name: 'Hospital Cearense de Medicina',
+      name: 'Hospital Cearense de Medicina 2',
       kind: 1,
       cnes: Faker::IDNumber.south_african_id_number,
       covid_attendance: false,
@@ -58,7 +58,7 @@ Organization.create(
       }
     ],
     [
-      name: 'Clínica Multi Especialidades',
+      name: 'Clínica Multi Especialidades 3',
       kind: 2,
       cnes: Faker::IDNumber.south_african_id_number,
       covid_attendance: false,
@@ -72,7 +72,7 @@ Organization.create(
       }
     ],
     [
-      name: 'UPA Barra do Ceará',
+      name: 'UPA Barra do Ceará 4',
       kind: 3,
       cnes: Faker::IDNumber.south_african_id_number,
       covid_attendance: true,

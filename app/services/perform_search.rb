@@ -7,7 +7,8 @@ class PerformSearch < ApplicationService
   end
 
   def call
-    search = { covid_attendance: @query[:covid].present? }
+    search = {}
+    search[:covid_attendance] = true if @query[:covid].present?
     if @query[:emergency]
       search[:medics] = { on_shift: true }
       search[:medics][:expertises] = { id: @query[:expertises] } if @query[:expertises].present?
