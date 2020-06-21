@@ -20,7 +20,9 @@ class Organization < ApplicationRecord
     public_hospital: 0,
     private_hospital: 1,
     clinic: 2,
-    upa: 3
+    upa: 3,
+    general_hospital: 4,
+    birth_center: 5
   }
 
   def featured_image

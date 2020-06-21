@@ -52,7 +52,7 @@
                 </div>
                 <div class="row pt-2">
                   <div class="col text-sm">
-                    Distância: <%= organization.address.distance_to(location, :km).round(2) %> km
+                    <%= organization.address.distance_str(location) %>
                   </div>
                 </div>
               </div>
