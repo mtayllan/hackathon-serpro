@@ -122,18 +122,18 @@
       <div class="container py-4">
         <div class="row justify-content-md-center px-4">
           <div class="contact-form col-sm-12 col-md-10 col-lg-7 p-4 mb-4 card">
-            <%= form_with url: '/post' do %>
+            <%= form_with url: solicitations_path do %>
               <div class="row">
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group">
                     <label for="contactFormFullName">Nome</label>
-                    <input name="contact[full_name]" class="form-control" id="contactFormFullName" placeholder="Insira seu nome">
+                    <input name="solicitation[name]" class="form-control" id="contactFormFullName" placeholder="Insira seu nome">
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group">
                     <label for="contactFormEmail">Endereço de email</label>
-                    <input name="contact[email]" type="email" class="form-control" id="contactFormEmail" placeholder="Insira seu endereço de email">
+                    <input name="solicitation[email]" type="email" class="form-control" id="contactFormEmail" placeholder="Insira seu endereço de email">
                   </div>
                 </div>
               </div>
@@ -141,7 +141,7 @@
                 <div class="col">
                   <div class="form-group">
                       <label for="exampleInputEmail1">Mensagem</label>
-                      <textarea id="exampleInputEmail1" class="form-control mb-4" rows="10" placeholder="Insira sua mensagem" name="contact[message]"></textarea>
+                      <textarea id="exampleInputEmail1" class="form-control mb-4" rows="10" placeholder="Insira sua mensagem" name="solicitation[message]"></textarea>
                   </div>
                 </div>
               </div>
