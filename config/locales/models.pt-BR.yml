@@ -16,6 +16,8 @@ pt-BR:
         cnes: CNES
         covid_attendance: Atende COVID
         cnpj: CNPJ
+        scheduling: Consulta por agendamento
+        hours: Horário de funcionamento
       organization_setting:
         interval_id: Intervalo de lotação
       address:
