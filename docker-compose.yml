@@ -1,20 +1,24 @@
-version: '2'
+version: "3"
+
 services:
   postgres:
     image: postgres
     volumes:
-      - 'postgres:/var/lib/postgresql/data'
+      - postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: qwe123
 
-  website:
+  app:
     depends_on:
-      - postgres
+      - "postgres"
     build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
-      - '.:/app'
+      - .:/app
+      - gems:/gems
 
 volumes:
   postgres:
+  gems:
