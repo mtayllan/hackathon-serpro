@@ -158,7 +158,7 @@
               <div class="card-body mind-bg p-2">
                 <div class="row no-gutters">
                   <% @organization.expertises.each do |exp| %>
-                    <div class="col-6">
+                    <div class="col-6 expertises-list" data-toggle="popover" data-placement="right" data-content="<%= expertises_health_plans(exp, @organization.id) %>">
                       <%= exp.name %>
                     </div>
                   <% end %>
@@ -204,6 +204,10 @@ $(function() {
 
 $('li').on('click', function (e) {
     $('li').not(this).popover('hide');
+});
+
+$('.expertises-list').on('click', function (e) {
+    $('.expertises-list').not(this).popover('hide');
 });
 
 </script>

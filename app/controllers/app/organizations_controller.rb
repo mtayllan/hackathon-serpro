@@ -7,7 +7,7 @@ class App::OrganizationsController < AppController
   end
 
   def show
-    @organization = Organization.find(params[:id])
+    @organization = Organization.includes(organization_health_plan_expertises: [:health_plan, :expertise]).find(params[:id])
     @report = Report.new
   end
 end
