@@ -3,7 +3,7 @@
 class Organization < ApplicationRecord
   has_one :address, dependent: :destroy
   has_one :organization_setting, dependent: :destroy
-  alias settings organization_setting
+  alias_method :settings, :organization_setting
   has_many :medics, dependent: :destroy
   has_many :organization_users, dependent: :destroy
   has_many :contacts, dependent: :destroy
@@ -33,13 +33,13 @@ class Organization < ApplicationRecord
 
   def expertises
     plan_expertises = Expertise.joins(:organization_health_plan_expertises)
-                               .where(organization_health_plan_expertises: { organization_id: id })
+      .where(organization_health_plan_expertises: { organization_id: id })
 
     medic_expertises.to_a.concat(plan_expertises.to_a).uniq
   end
 
   def medic_expertises
     Expertise.joins(medic_expertises: :medic)
-             .where(medics: { organization_id: id })
+      .where(medics: { organization_id: id })
   end
 end
