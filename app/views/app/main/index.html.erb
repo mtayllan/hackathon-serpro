@@ -91,6 +91,10 @@
 
 
   <script>
+    $(() => {
+      $('.selectpicker-custom').selectpicker();
+    });
+
     function toggleVisibility(id) {
       const selectContainer = document.getElementById(`${id}-select`);
       const button = document.getElementById(`${id}-btn`)
@@ -104,13 +108,18 @@
         button.classList.remove('d-none');
         select.disabled = true;
       }
-      $(select).selectpicker('refresh');
     }
 
     document.addEventListener('turbolinks:load', () => {
       const onSuccess = (position) => {
-        document.querySelector('input[name=latitude]').value = position.coords.latitude;
-        document.querySelector('input[name=longitude]').value = position.coords.longitude;
+        const inpLat = document.querySelector('input[name=latitude]')
+        const inpLon = document.querySelector('input[name=longitude]')
+        if (inpLat) {
+          inpLat.value = position.coords.latitude;
+        }
+        if (inpLon) {
+          inpLon.value = position.coords.longitude;
+        }
         console.log('Posição encontrada :)');
       }
 
@@ -122,12 +131,6 @@
 
       }
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
-      const bsSelectsLength = document.querySelectorAll('.bootstrap-select').length;
-      const selectsLength = document.querySelectorAll('.selectpicker').length;
-      if (bsSelectsLength != selectsLength) {
-        $('.selectpicker').selectpicker('refresh');
-      }
     });
   </script>
 
