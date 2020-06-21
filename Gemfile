@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'cocoon'
 gem 'devise'
 gem 'enum_help'
+gem 'geocoder'
 gem 'image_processing'
 gem 'jbuilder', '~> 2.7'
 gem 'mini_magick'
@@ -27,8 +28,8 @@ end
 
 group :development do
   gem 'listen', '~> 3.2'
-  gem 'pry-rails'
   gem 'pry-nav'
+  gem 'pry-rails'
   gem 'rubocop'
   gem 'rubycritic'
   gem 'solargraph'

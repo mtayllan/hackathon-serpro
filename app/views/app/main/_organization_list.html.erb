@@ -34,25 +34,25 @@
               </div>
               <div class="col-8">
                 <p class="m-0"><%= organization.name %></p>
-                <div class="row mt-2">
-                  <div class="col-2">
+                <div class="row align-items-center mt-2">
+                  <div class="col-2 pr-1">
                     <%= image_tag 'localization.svg', class: 'svg-sm' %>
                   </div>
-                  <div class="col-10 text-sm">
+                  <div class="col-10 text-sm pl-1">
                     <%= organization.address.to_s %>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-2">
+                <div class="row align-items-center">
+                  <div class="col-2 pr-1">
                     <%= image_tag 'health.svg', class: 'svg-sm' %>
                   </div>
-                  <div class="col-10">
+                  <div class="col-10 text-sm pl-1">
                     <%= organization.kind_i18n %>
                   </div>
                 </div>
                 <div class="row pt-2">
                   <div class="col text-sm">
-                    Distancia: <%= rand(1.2..5.0).round(2) %> km
+                    Distância: <%= organization.address.distance_to(location, :km).round(2) %> km
                   </div>
                 </div>
               </div>

@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2020_06_18_235932) do
     t.string "zipcode"
     t.string "state"
     t.string "neighborhood"
-    t.string "latitude"
-    t.string "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.bigint "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -3,8 +3,8 @@
 
 window.onload = () => {
   const onSuccess = (position) => {
-    document.getElementsByName('latitude').value = position.coords.latitude;
-    document.getElementsByName('longitude').value = position.coords.longitude;
+    document.querySelector('input[name=latitude]').value = position.coords.latitude;
+    document.querySelector('input[name=longitude]').value = position.coords.longitude;
     console.log('Posição encontrada :)');
   }
 

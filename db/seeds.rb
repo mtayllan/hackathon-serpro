@@ -27,55 +27,66 @@ end
   )
 end
 
-Organization.create([
+Organization.create(
   [
-    name: 'Hospital Geral de Fortaleza',
-    kind: 0,
-    cnes: Faker::IDNumber.south_african_id_number,
-    covid_attendance: true,
-    cnpj: Faker::IDNumber.valid,
-    has_emergency: true
-  ],
-  [
-    name: 'Hospital Cearense de Medicina',
-    kind: 1,
-    cnes: Faker::IDNumber.south_african_id_number,
-    covid_attendance: false,
-    cnpj: Faker::IDNumber.valid,
-    has_emergency: true
-  ],
-  [
-    name: 'Clínica Multi Especialidades',
-    kind: 2,
-    cnes: Faker::IDNumber.south_african_id_number,
-    covid_attendance: false,
-    cnpj: Faker::IDNumber.valid,
-    has_emergency: false
-  ],
-  [
-    name: 'UPA Barra do Ceará',
-    kind: 3,
-    cnes: Faker::IDNumber.south_african_id_number,
-    covid_attendance: true,
-    cnpj: Faker::IDNumber.valid,
-    has_emergency: true
+    [
+      name: 'Hospital Geral de Fortaleza',
+      kind: 0,
+      cnes: Faker::IDNumber.south_african_id_number,
+      covid_attendance: true,
+      cnpj: Faker::IDNumber.valid,
+      has_emergency: true,
+      address_attributes: {
+        city: 'Itapipoca',
+        state: 'Ceará',
+        street: 'Rua Caio Prado',
+        number: '1045'
+      }
+    ],
+    [
+      name: 'Hospital Cearense de Medicina',
+      kind: 1,
+      cnes: Faker::IDNumber.south_african_id_number,
+      covid_attendance: false,
+      cnpj: Faker::IDNumber.valid,
+      has_emergency: true,
+      address_attributes: {
+        city: 'Itapipoca',
+        state: 'Ceará',
+        street: 'Av Duque de Caxias',
+        number: '553'
+      }
+    ],
+    [
+      name: 'Clínica Multi Especialidades',
+      kind: 2,
+      cnes: Faker::IDNumber.south_african_id_number,
+      covid_attendance: false,
+      cnpj: Faker::IDNumber.valid,
+      has_emergency: false,
+      address_attributes: {
+        city: 'Itapipoca',
+        state: 'Ceará',
+        street: 'Rua Chico Viriato',
+        number: '357'
+      }
+    ],
+    [
+      name: 'UPA Barra do Ceará',
+      kind: 3,
+      cnes: Faker::IDNumber.south_african_id_number,
+      covid_attendance: true,
+      cnpj: Faker::IDNumber.valid,
+      has_emergency: true,
+      address_attributes: {
+        city: 'Itapipoca',
+        state: 'Ceará',
+        street: 'Rua Eubia Barroso',
+        number: '1857'
+      }
+    ]
   ]
-]
 )
-
-4.times do |i|
-  Address.create(
-    city: Faker::Address.city,
-    street: Faker::Address.street_name,
-    neighborhood: Faker::Address.community,
-    number: Faker::Address.building_number,
-    zipcode: Faker::Address.zip_code,
-    state: Faker::Address.state,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude,
-    organization_id: i + 1
-  )
-end
 
 4.times do |i|
   Contact.create(
@@ -91,39 +102,39 @@ OrganizationUser.create(
   password: 'qwe123'
 )
 
-Expertise.create([
+Expertise.create(
   [
-    name: 'Otorrino',
-    description: Faker::Lorem.sentence
-  ],
-  [
-    name: 'Pediatra',
-    description: Faker::Lorem.sentence
-  ],
-  [
-    name: 'Ortopedia',
-    description: Faker::Lorem.sentence
-  ],
-  [
-    name: 'Psiquiatria',
-    description: Faker::Lorem.sentence
-  ],
-  [
-    name: 'Cardiologia',
-    description: Faker::Lorem.sentence
+    [
+      name: 'Otorrino',
+      description: Faker::Lorem.sentence
+    ],
+    [
+      name: 'Pediatra',
+      description: Faker::Lorem.sentence
+    ],
+    [
+      name: 'Ortopedia',
+      description: Faker::Lorem.sentence
+    ],
+    [
+      name: 'Psiquiatria',
+      description: Faker::Lorem.sentence
+    ],
+    [
+      name: 'Cardiologia',
+      description: Faker::Lorem.sentence
 
-  ],
-  [
-    name: 'Obstetricia',
-    description: Faker::Lorem.sentence
-  ],
-  [
-    name: 'Ginecologia',
-    description: Faker::Lorem.sentence
+    ],
+    [
+      name: 'Obstetricia',
+      description: Faker::Lorem.sentence
+    ],
+    [
+      name: 'Ginecologia',
+      description: Faker::Lorem.sentence
+    ]
   ]
-]
 )
-
 
 20.times do
   org_id = rand(1..4)
@@ -146,44 +157,46 @@ end
   )
 end
 
-HealthInsurer.create([
+HealthInsurer.create(
   [
-    name: 'Unimed',
-    description: Faker::Lorem.sentence
-  ],
-  [
-    name: 'Amil',
-    description: Faker::Lorem.sentence
-  ],
-  [
-    name: 'Bradesco Seguros',
-    description: Faker::Lorem.sentence
+    [
+      name: 'Unimed',
+      description: Faker::Lorem.sentence
+    ],
+    [
+      name: 'Amil',
+      description: Faker::Lorem.sentence
+    ],
+    [
+      name: 'Bradesco Seguros',
+      description: Faker::Lorem.sentence
+    ]
   ]
-]
 )
 
-HealthPlan.create([
+HealthPlan.create(
   [
-    name: 'Unimed Fortaleza',
-    description: Faker::Lorem.sentence,
-    health_insurer_id: 1
-  ],
-  [
-    name: 'Unimed Ceará',
-    description: Faker::Lorem.sentence,
-    health_insurer_id: 1
-  ],
-  [
-    name: 'Amil Ceará',
-    description: Faker::Lorem.sentence,
-    health_insurer_id: 2
-  ],
-  [
-    name: 'Bradesco Seguros',
-    description: Faker::Lorem.sentence,
-    health_insurer_id: 3
+    [
+      name: 'Unimed Fortaleza',
+      description: Faker::Lorem.sentence,
+      health_insurer_id: 1
+    ],
+    [
+      name: 'Unimed Ceará',
+      description: Faker::Lorem.sentence,
+      health_insurer_id: 1
+    ],
+    [
+      name: 'Amil Ceará',
+      description: Faker::Lorem.sentence,
+      health_insurer_id: 2
+    ],
+    [
+      name: 'Bradesco Seguros',
+      description: Faker::Lorem.sentence,
+      health_insurer_id: 3
+    ]
   ]
-]
 )
 
 10.times do

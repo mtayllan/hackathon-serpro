@@ -5,6 +5,10 @@
  *= require shards-extras
 */
 
+body {
+  font-family: 'Share', cursive ;
+}
+
 .mind-bg, body {
   background-color: #2794D5;
 }
@@ -14,9 +18,9 @@
 }
 
 .media-sm {
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: -0.5px;
-  line-height: 14px;
+  line-height: 15px;
 }
 
 .organization-card .media img, .media-sm img {
@@ -32,8 +36,8 @@
 }
 
 .text-sm {
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 13px;
+  line-height: 13px;
 }
 
 .org-item:hover {
