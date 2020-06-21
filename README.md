@@ -66,7 +66,7 @@ Caso tenha problemas com a instalação, você pode ver o app de demonstração 
 Após popular o banco de dados com os dados de teste,
 é possível acessar o painel do Administrador e do Usuário da Organização de saúde utilizando as credencias:
 
-#### Administrador
+#### Administrador da plataforma
 
 Email: `a@a`
 
@@ -78,7 +78,7 @@ Heroku: https://mindd.herokuapp.com/admin
 
 Local: localhost:3000/admin
 
-#### Usuário
+#### Administrador da unidade
 
 Email: `u@u`
 
