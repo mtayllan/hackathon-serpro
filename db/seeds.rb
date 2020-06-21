@@ -2,6 +2,8 @@
 
 require 'faker'
 
+Admin.create(email: 'a@a', password: 'qwe123')
+
 5.times do
   Interval.create(
     description: 'intervalo de pessoas presentes',

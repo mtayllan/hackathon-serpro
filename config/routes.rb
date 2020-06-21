@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  authenticate :admin do
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  end
+
   devise_for :admins
   devise_for :organization_users, controllers: {
     sessions: 'organization_users/sessions'
