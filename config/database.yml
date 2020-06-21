@@ -1,29 +1,29 @@
 
 # default docker
-default: &default
-  adapter: postgresql
-  timeout: 5000
-  encoding: unicode
-  host: postgres
-  username: postgres
-  pool: <%= ENV["RAILS_MAX_THREADS"] || 5 %>
-  password: password
-
 # default: &default
 #   adapter: postgresql
+#   timeout: 5000
 #   encoding: unicode
-#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   host: postgres
+#   username: postgres
+#   pool: <%= ENV["RAILS_MAX_THREADS"] || 5 %>
+#   password: qwe123
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: healthapp_development
+  database: mind_development
 
 test:
   <<: *default
-  database: healthapp_test
+  database: mind_test
 
 production:
   <<: *default
-  database: healthapp_production
-  username: healthapp
-  password: <%= ENV['HEALTHAPP_DATABASE_PASSWORD'] %>
+  database: mind_production
+  username: mind
+  password: <%= ENV['MIND_DATABASE_PASSWORD'] %>
