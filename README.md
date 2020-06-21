@@ -37,18 +37,21 @@ Caso queira, inicialmente, popular o banco de dados, rode `rails db:seed`.
 
 ### Docker
 
-1. Para usar o projeto com docker, dê checkout na branch dockerize (`git checkout dockerize`)
+1. Para usar o projeto com docker, é necessário ter instalado o [Docker](https://github.com/docker/docker-ce) e o [Docker compose](https://github.com/docker/compose)
 
-2. Execute os seguintes comandos:
+2. Dê checkout na branch *dockerize* (`git checkout dockerize`)
+
+3. Execute os seguintes comandos:
 ```bash
 docker-compose build
 
 docker-compose run app \
 bundle install && \
 yarn install
+
 docker-compose run app bundle exec rails db:create db:migrate db:seed
 
 ```
-3. Levante o sercidor com `docker-compose up` e visite http://localhost:3000.
+4. Levante o sercidor com `docker-compose up` e visite http://localhost:3000.
 
 Caso tenha problemas com a instalação, você pode ver o app de demonstração no Heroku [aqui](https://mindd.herokuapp.com/).
