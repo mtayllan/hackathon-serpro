@@ -67,7 +67,14 @@
                   </div>
                   <ul class="list-group list-group-flush">
                     <% @organization.health_plans.each do |hp| %>
-                      <li class="list-group-item mind-bg text-white py-0 pl-2 d-flex justify-content-between">
+                      <li class="list-group-item mind-bg text-white py-0 pl-2 d-flex justify-content-between" data-toggle="popover" data-placement="right" data-content="<%= health_plans_expertises(hp, @organization.id) %>">
+
+                      <!--
+                      <button type="button" class="btn btn-secondary teste" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                        Popover on right
+                      </button>
+                        -->
+
                         <small class="mt-1 mb-1"><%= hp.name %></small><i class="fa fa-info-circle mt-1 mb-1" aria-hidden="true"></i>
                         </li>
                     <% end %>
@@ -188,3 +195,11 @@
     </div>
   </div>
 </body>
+
+<script>
+
+$(function() {
+  $('[data-toggle="popover"]').popover()
+})
+
+</script>

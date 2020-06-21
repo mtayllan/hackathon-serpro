@@ -16,4 +16,13 @@ module MainHelper
   def complete_address(address)
     "#{address.street}, #{address.number}, #{address.neighborhood} "
   end
+
+  def health_plans_expertises(health_plan, organization_id)
+    provided_expertises = []
+    health_plan.organization_health_plan_expertises.where(organization_id: organization_id).each do |ohpe|
+      provided_expertises << ohpe.expertise.name
+    end
+
+    provided_expertises.join(', ')
+  end
 end
