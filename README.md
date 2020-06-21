@@ -11,6 +11,11 @@ Mind (do inglês, cuidar) é uma **aplicação web** com adaptação para PWA (P
 * [PostgreSQL](https://www.postgresql.org/)
 * [Yarn](https://yarnpkg.com/)
 
+## Bases de dados
+
+Para popular o banco de dados, utlizamos os dados que estão no arquivo `db/seeds.rb`, que contém um CSV (`lib/assets/Dados.csv`).
+Ele contém o nome endereços reais de hospitais da cidade de Fortaleza-CE, sendo todas as outras informações fictícias.
+
 ## Iniciando o projeto
 
 ### Instalação local
