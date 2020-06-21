@@ -90,7 +90,7 @@ Organization.create(
   ]
 )
 
-4.times do |i|
+3.times do |i|
   Contact.create(
     kind: rand(1..2),
     value: Faker::PhoneNumber.phone_number,
@@ -139,7 +139,7 @@ Expertise.create(
 )
 
 20.times do
-  org_id = rand(1..4)
+  org_id = rand(1..3)
   shift = if Organization.find(org_id).has_emergency?
             [true, false].sample
           else
