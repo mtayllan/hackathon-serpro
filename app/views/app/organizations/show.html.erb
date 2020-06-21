@@ -66,7 +66,7 @@
                     Planos
                   </div>
                   <ul class="list-group list-group-flush">
-                    <% @organization.health_plans.each do |hp| %>
+                    <% @organization.health_plans.uniq.each do |hp| %>
                       <li class="list-group-item mind-bg text-white py-0 pl-2 d-flex justify-content-between" data-toggle="popover" data-placement="right" data-content="<%= health_plans_expertises(hp, @organization.id) %>">
 
                       <!--

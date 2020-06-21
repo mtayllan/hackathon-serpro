@@ -134,6 +134,14 @@ HealthInsurer.create(
     [
       name: 'Bradesco Seguros',
       description: Faker::Lorem.sentence
+    ],
+    [
+      name: 'Caixa',
+      description: Faker::Lorem.sentence
+    ],
+    [
+      name: 'Hapivida',
+      description: Faker::Lorem.sentence
     ]
   ]
 )
@@ -152,6 +160,26 @@ HealthPlan.create(
       health_insurer_id: 1
     ],
     [
+      name: 'Unimed Multiplan',
+      description: Faker::Lorem.sentence,
+      health_insurer_id: 1
+    ],
+    [
+      name: 'Unimed Uniplano',
+      description: Faker::Lorem.sentence,
+      health_insurer_id: 1
+    ],
+    [
+      name: 'Unimed Multimax',
+      description: Faker::Lorem.sentence,
+      health_insurer_id: 1
+    ],
+    [
+      name: 'UNifácil Empresarial',
+      description: Faker::Lorem.sentence,
+      health_insurer_id: 1
+    ],
+    [
       name: 'Amil Ceará',
       description: Faker::Lorem.sentence,
       health_insurer_id: 2
@@ -160,6 +188,16 @@ HealthPlan.create(
       name: 'Bradesco Seguros',
       description: Faker::Lorem.sentence,
       health_insurer_id: 3
+    ],
+    [
+      name: 'Saúde Caixa',
+      description: Faker::Lorem.sentence,
+      health_insurer_id: 4
+    ],
+    [
+      name: 'Hapivida',
+      description: Faker::Lorem.sentence,
+      health_insurer_id: 5
     ]
   ]
 )
@@ -170,12 +208,14 @@ organization_amount = Organization.count
 expertise_amount = Expertise.count
 
 puts 'criando relação entre planos e organizações'
-10.times do
-  OrganizationHealthPlanExpertise.create(
-    organization_id: rand(1..organization_amount),
-    health_plan_id: rand(1..health_plan_amount),
-    expertise_id: rand(1..expertise_amount)
-  )
+Organization.all.each do |org|
+  10.times do
+    OrganizationHealthPlanExpertise.create(
+      organization: org,
+      health_plan_id: rand(1..health_plan_amount),
+      expertise_id: rand(1..expertise_amount)
+    )
+  end
 end
 
 puts 'criando especialidades médicas'
