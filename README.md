@@ -70,7 +70,7 @@ Após popular o banco de dados com os dados de teste,
 
 Email: `a@a`
 
-Senha: `123456`
+Senha: `qwe123`
 
 Endereço: $HOST/admin
 
