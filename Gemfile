@@ -19,6 +19,7 @@ gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 gem 'rails_admin'
 gem 'ransack'
+gem 'serviceworker-rails'
 
 gem 'faker'
 

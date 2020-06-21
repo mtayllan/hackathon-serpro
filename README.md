@@ -60,3 +60,33 @@ docker-compose run app bundle exec rails db:create db:migrate db:seed
 4. Levante o sercidor com `docker-compose up` e visite http://localhost:3000.
 
 Caso tenha problemas com a instalação, você pode ver o app de demonstração no Heroku [aqui](https://mindd.herokuapp.com/).
+
+## Credenciais
+
+Após popular o banco de dados com os dados de teste,
+é possível acessar o painel do Administrador e do Usuário da Organização de saúde utilizando as credencias:
+
+#### Administrador da plataforma
+
+Email: `a@a`
+
+Senha: `123456`
+
+Endereço: $HOST/admin
+
+Heroku: https://mindd.herokuapp.com/admin
+
+Local: localhost:3000/admin
+
+#### Administrador da unidade
+
+Email: `u@u`
+
+Senha: `qwe123`
+
+Endereço: $HOST/organization_users/sign_in
+
+Heroku: https://mindd.herokuapp.com/organization_users/sign_in
+
+Local: localhost:3000/organization_users/sign_in
+

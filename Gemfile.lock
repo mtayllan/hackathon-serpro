@@ -290,6 +290,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    serviceworker-rails (0.6.0)
+      railties (>= 3.1)
     sexp_processor (4.15.0)
     simplecov (0.18.5)
       docile (~> 1.1)
@@ -371,6 +373,7 @@ DEPENDENCIES
   ransack
   rubocop
   rubycritic
+  serviceworker-rails
   solargraph
   spring
   spring-watcher-listen (~> 2.0.0)

@@ -107,7 +107,7 @@
       $(select).selectpicker('refresh');
     }
 
-    window.onload = () => {
+    document.addEventListener('turbolinks:load', () => {
       const onSuccess = (position) => {
         document.querySelector('input[name=latitude]').value = position.coords.latitude;
         document.querySelector('input[name=longitude]').value = position.coords.longitude;
@@ -122,9 +122,7 @@
 
       }
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    }
 
-    document.addEventListener('turbolinks:load', () => {
       const bsSelectsLength = document.querySelectorAll('.bootstrap-select').length;
       const selectsLength = document.querySelectorAll('.selectpicker').length;
       if (bsSelectsLength != selectsLength) {
