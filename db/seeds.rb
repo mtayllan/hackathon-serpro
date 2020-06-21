@@ -12,21 +12,6 @@ require 'faker'
   )
 end
 
-4.times do |i|
-  OrganizationSetting.create(
-    interval_id: rand(1..5),
-    organization_id: i + 1
-  )
-end
-
-4.times do |i|
-  Occupancy.create(
-    start: rand(1..5),
-    finish: rand(5..20),
-    organization_id: i + 1
-  )
-end
-
 Organization.create([
   [
     name: 'Hospital Geral de Fortaleza',
@@ -62,6 +47,21 @@ Organization.create([
   ]
 ]
 )
+
+4.times do |i|
+  OrganizationSetting.create(
+    interval_id: rand(1..5),
+    organization_id: i + 1
+  )
+end
+
+4.times do |i|
+  Occupancy.create(
+    start: rand(1..5),
+    finish: rand(5..20),
+    organization_id: i + 1
+  )
+end
 
 4.times do |i|
   Address.create(
