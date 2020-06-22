@@ -40,8 +40,6 @@ https://www.figma.com/file/AGANQbe8riuWGoYh0EM1dv/Mind?node-id=0%3A1
 * [SB Admin 2](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
 * Bootstrap
 * Font Awesome
-* Ícones do [Icon Finder](https://www.iconfinder.com/)
-* Imagens do [PixaBay](https://pixabay.com)
 
 ## Bases de dados
 
@@ -104,7 +102,7 @@ Email: `a@a`
 
 Senha: `qwe123`
 
-Endereço: $HOST/admin
+Endereço: /admin
 
 Heroku: https://mindd.herokuapp.com/admin
 
@@ -116,16 +114,16 @@ Email: `u@u`
 
 Senha: `qwe123`
 
-Endereço: $HOST/organization_users/sign_in
+Endereço: /organization_users/sign_in
 
 Heroku: https://mindd.herokuapp.com/organization_users/sign_in
 
 Local: http://localhost:3000/organization_users/sign_in
 
 ## Apresentação
-Link da Apresentação no Youtube: https://youtu.be/DpAy1pU13bs
-
-Link da Landing Page: https://mindd.herokuapp.com/
+* Link da Apresentação no Youtube: https://youtu.be/DpAy1pU13bs
+* Link da Landing Page: https://mindd.herokuapp.com/
+* [Pitch Deck](Pitch%20-%20Serpro.pdf) (nesse repositório)
 
 ## Equipe
 Iury Rosal - Líder, Analista de Negócios e UX
