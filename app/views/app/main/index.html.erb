@@ -28,7 +28,7 @@
       <%= form_with url: app_organizations_path, method: :get do |f| %>
         <div class="row align-items-center no-gutters mb-2" id="expertise-select">
           <div class="col-11">
-            <select name="q[expertises][]" title="Selecione uma ou mais especialidades" class="selectpicker" data-style="btn-light" data-live-search="true" data-width="100%" multiple>
+            <select name="q[expertises][]" title="Selecione uma ou mais especialidades" class="selectpicker-custom" data-style="btn-light" data-live-search="true" data-width="100%" multiple>
               <% @expertises.find_each do |expertise| %>
                 <option value="<%= expertise.id %>"><%= expertise.name %></option>
               <% end %>
@@ -40,7 +40,7 @@
         </div>
         <div class="row align-items-center no-gutters mb-2" id="plan-select">
           <div class="col-11">
-            <select name="q[plan]" title="Selecione um plano de saúde" class="selectpicker" data-style="btn-light" data-live-search="true" data-width="100%">
+            <select name="q[plan]" title="Selecione um plano de saúde" class="selectpicker-custom" data-style="btn-light" data-live-search="true" data-width="100%">
               <% @plans.find_each do |plan| %>
                 <option value="<%= plan.id %>"><%= plan.name %></option>
               <% end %>
@@ -52,7 +52,7 @@
         </div>
         <div class="row align-items-center no-gutters d-none" id="unit-select">
           <div class="col-11">
-            <select name="q[organizations][]" title="Selecione um ou mais tipos de unidade" class="selectpicker" data-style="btn-light" data-width="100%" multiple>
+            <select name="q[organizations][]" title="Selecione um ou mais tipos de unidade" class="selectpicker-custom" data-style="btn-light" data-width="100%" multiple>
               <% Organization.kinds_i18n.each do |kind| %>
                 <option value="<%= kind.first %>"><%= kind.second %></option>
               <% end %>
@@ -91,10 +91,6 @@
 
 
   <script>
-    $(() => {
-      $('.selectpicker-custom').selectpicker();
-    });
-
     function toggleVisibility(id) {
       const selectContainer = document.getElementById(`${id}-select`);
       const button = document.getElementById(`${id}-btn`)
@@ -109,17 +105,13 @@
         select.disabled = true;
       }
     }
-
-    document.addEventListener('turbolinks:load', () => {
+    window.onload = () => {
       const onSuccess = (position) => {
-        const inpLat = document.querySelector('input[name=latitude]')
-        const inpLon = document.querySelector('input[name=longitude]')
-        if (inpLat) {
-          inpLat.value = position.coords.latitude;
-        }
-        if (inpLon) {
-          inpLon.value = position.coords.longitude;
-        }
+        const inputLat = document.querySelector('input[name=latitude]');
+        const inputLon = document.querySelector('input[name=longitude]');
+
+        inputLat.value = position.coords.latitude;
+        inputLon.value = position.coords.longitude;
         console.log('Posição encontrada :)');
       }
 
@@ -130,8 +122,14 @@
         });
 
       }
-      navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    });
+      const inputLat = document.querySelector('input[name=latitude]');
+      const inputLon = document.querySelector('input[name=longitude]');
+      if (inputLat && inputLat.value == '' && inputLon && inputLon.value == '') {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+      }
+
+      $('.selectpicker-custom').selectpicker();
+    }
   </script>
 
 </body>
