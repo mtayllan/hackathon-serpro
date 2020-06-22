@@ -13,8 +13,8 @@ Mind (do inglês, cuidar) é uma **aplicação web** com adaptação para PWA (P
 
 ## Bases de dados
 
-Para popular o banco de dados, utlizamos os dados que estão no arquivo `db/seeds.rb`, que contém um CSV (`lib/assets/Dados.csv`).
-Ele contém o nome endereços reais de hospitais da cidade de Fortaleza-CE, sendo todas as outras informações fictícias.
+Para popular o banco de dados, utlizamos os dados que estão no arquivo `db/seeds.rb`, que contém um CSV (`lib/assets/Dados.csv`), além de uma biblioteca chamada *Faker*, que gera dados pseudo-aleatórios.
+O CSV contém o nome endereços reais de hospitais da cidade de Fortaleza-CE, sendo todo o resto das informações fictícias.
 
 ## Iniciando o projeto
 
@@ -57,7 +57,7 @@ yarn install
 docker-compose run app bundle exec rails db:create db:migrate db:seed
 
 ```
-4. Levante o sercidor com `docker-compose up` e visite http://localhost:3000.
+4. Levante o servidor com `docker-compose up` e visite http://localhost:3000.
 
 Caso tenha problemas com a instalação, você pode ver o app de demonstração no Heroku [aqui](https://mindd.herokuapp.com/).
 
@@ -76,7 +76,7 @@ Endereço: $HOST/admin
 
 Heroku: https://mindd.herokuapp.com/admin
 
-Local: localhost:3000/admin
+Local: http://localhost:3000/admin
 
 #### Administrador da unidade
 
@@ -88,5 +88,5 @@ Endereço: $HOST/organization_users/sign_in
 
 Heroku: https://mindd.herokuapp.com/organization_users/sign_in
 
-Local: localhost:3000/organization_users/sign_in
+Local: http://localhost:3000/organization_users/sign_in
 
