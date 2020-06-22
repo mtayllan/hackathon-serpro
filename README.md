@@ -10,6 +10,11 @@ Para realizar construções em relação a qual setor iriamos atacar, além do p
 
 Link do Miro: https://miro.com/app/board/o9J_kr9kilE=/
 
+## Identidade Visual
+Para a montagem da logo usamos o Adobe Photoshop CC. Para a seleção da paleta de cores usamos o Paletton. 
+
+Link da Paleta de Cores: http://paletton.com/#uid=53f0f0kmSQJbHXjhQU3rHMxA+GM
+
 ## Prototipação
 A prototipação foi voltada para a construção das telas de usuário (paciente), relacionada a busca e exibição das unidades de saúde. Além disso, foi feita apenas a prototipação do painel inicial para o administrador das unidades, proporcionando uma atualização rápida das informações relacionadas ao pronto-atendimento. 
 
