@@ -42,8 +42,6 @@ A modelagem inicial do banco de dados: https://dbdiagram.io/d/5ee7e9359ea313663b
 * [SB Admin 2](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
 * Bootstrap
 * Font Awesome
-* Ícones do [Icon Finder](https://www.iconfinder.com/)
-* Imagens do [PixaBay](https://pixabay.com)
 
 ## Bases de dados
 
@@ -83,7 +81,7 @@ Caso queira, inicialmente, popular o banco de dados, rode `rails db:seed`.
 
 1. Para usar o projeto com docker, é necessário ter instalado o [Docker](https://github.com/docker/docker-ce) e o [Docker compose](https://github.com/docker/compose)
 
-2. Dê checkout na branch *dockerize* (`git checkout dockerize`)
+2. Dê checkout na branch *docker* (`git checkout docker`)
 
 3. Execute os seguintes comandos:
 ```bash
@@ -111,7 +109,7 @@ Email: `a@a`
 
 Senha: `qwe123`
 
-Endereço: $HOST/admin
+Endereço: /admin
 
 Heroku: https://mindd.herokuapp.com/admin
 
@@ -123,16 +121,16 @@ Email: `u@u`
 
 Senha: `qwe123`
 
-Endereço: $HOST/organization_users/sign_in
+Endereço: /organization_users/sign_in
 
 Heroku: https://mindd.herokuapp.com/organization_users/sign_in
 
 Local: http://localhost:3000/organization_users/sign_in
 
 ## Apresentação
-Link da Apresentação no Youtube: https://youtu.be/DpAy1pU13bs
-
-Link da Landing Page: https://mindd.herokuapp.com/
+* Link da Apresentação no Youtube: https://youtu.be/DpAy1pU13bs
+* Link da Landing Page: https://mindd.herokuapp.com/
+* [Pitch Deck](Pitch%20-%20Serpro.pdf) (nesse repositório)
 
 ## Equipe
 Iury Rosal - Líder, Analista de Negócios e UX
