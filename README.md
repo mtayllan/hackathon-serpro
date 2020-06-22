@@ -13,7 +13,7 @@ Link do Miro: https://miro.com/app/board/o9J_kr9kilE=/
 ## Prototipação
 A prototipação foi voltada para a construção das telas de usuário (paciente), relacionada a busca e exibição das unidades de saúde. Além disso, foi feita apenas a prototipação do painel inicial para o administrador das unidades, proporcionando uma atualização rápida das informações relacionadas ao pronto-atendimento. 
 
-A prototipação foi de alta fidelidade e utilizamos o [Figma] (https://www.figma.com/).
+A prototipação foi de alta fidelidade e utilizamos o [Figma](https://www.figma.com/).
 
 Link da prototipação desenvolvida: 
 https://www.figma.com/file/AGANQbe8riuWGoYh0EM1dv/Mind?node-id=0%3A1
@@ -117,7 +117,11 @@ Local: http://localhost:3000/organization_users/sign_in
 
 ## Equipe
 Iury Rosal - Líder, Analista de Negócios e UX
+
 Vinicius Almeida - Analista de Negócios e UX
+
 Laura Santiago - Desenvolvedora
+
 Tomás Coelho - Desenvolvedor
+
 Messias Tayllan - Desenvolvedor
