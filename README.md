@@ -4,6 +4,19 @@
 
 Mind (do inglês, cuidar) é uma **aplicação web** com adaptação para PWA (Progressive Web App) que permite que qualquer pessoa possa encontrar uma unidade de saúde ideal e mais próxima para ser atendido.
 
+## Construção da Solução
+Para realizar construções em relação a qual setor iriamos atacar, além do problema e da solução, utilizamos o [Miro] (https://miro.com/app/board/o9J_kr9kilE=/). Os analistas de negócios também utilizaram para a construção das Personas, Business Model Canvas, Pitchs Iniciais e o Roteiro da Apresentação Final.
+
+Link do Miro: https://miro.com/app/board/o9J_kr9kilE=/
+
+## Prototipação
+A prototipação foi voltada para a construção das telas de usuário (paciente), relacionada a busca e exibição das unidades de saúde. Além disso, foi feita apenas a prototipação do painel inicial para o administrador das unidades, proporcionando uma atualização rápida das informações relacionadas ao pronto-atendimento. 
+
+A prototipação foi de alta fidelidade e utilizamos o [Figma] (https://www.figma.com/).
+
+Link da prototipação desenvolvida: 
+https://www.figma.com/file/AGANQbe8riuWGoYh0EM1dv/Mind?node-id=0%3A1
+
 ## Tecnologias
 
 * [Ruby 2.6.5](https://www.ruby-lang.org/pt/)
@@ -11,7 +24,7 @@ Mind (do inglês, cuidar) é uma **aplicação web** com adaptação para PWA (P
 * [PostgreSQL](https://www.postgresql.org/)
 * [Yarn](https://yarnpkg.com/)
 
-## Templates e layouts
+## Templates e Layouts
 
 * [Shards](https://designrevision.com/demo/shards/)
 * [SB Admin 2](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
@@ -100,3 +113,10 @@ Heroku: https://mindd.herokuapp.com/organization_users/sign_in
 Local: http://localhost:3000/organization_users/sign_in
 
 ## Apresentação e recursos visuais
+
+## Equipe
+Iury Rosal - Líder, Analista de Negócios e UX
+Vinicius Almeida - Analista de Negócios e UX
+Laura Santiago - Desenvolvedora
+Tomás Coelho - Desenvolvedor
+Messias Tayllan - Desenvolvedor
