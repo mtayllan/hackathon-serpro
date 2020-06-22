@@ -13,8 +13,8 @@ Mind (do inglês, cuidar) é uma **aplicação web** com adaptação para PWA (P
 
 ## Bases de dados
 
-Para popular o banco de dados, utlizamos os dados que estão no arquivo `db/seeds.rb`, que contém um CSV (`lib/assets/Dados.csv`), além de uma biblioteca chamada *Faker*, que gera dados pseudo-aleatórios.
-O CSV contém o nome endereços reais de hospitais da cidade de Fortaleza-CE, sendo todo o resto das informações fictícias.
+Para popular o banco de dados, utlizamos os dados que estão no arquivo `db/seeds.rb`, que puxa um CSV (`lib/assets/Dados.csv`), além da biblioteca chamada *Faker*, que gera dados pseudo-aleatórios.
+O CSV contém o nome e endereços reais de hospitais da cidade de Fortaleza-CE, porém todo o resto das informações são fictícias.
 
 ## Iniciando o projeto
 
