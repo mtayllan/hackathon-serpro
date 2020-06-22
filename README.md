@@ -5,7 +5,8 @@
 Mind (do inglês, cuidar) é uma **aplicação web** com adaptação para PWA (Progressive Web App) que permite que qualquer pessoa possa encontrar uma unidade de saúde ideal e mais próxima para ser atendido.
 
 ## Construção da Solução
-Para realizar construções em relação a qual setor iriamos atacar, além do problema e da solução, utilizamos o [Miro] (https://miro.com/app/board/o9J_kr9kilE=/). Os analistas de negócios também utilizaram para a construção das Personas, Business Model Canvas, Pitchs Iniciais e o Roteiro da Apresentação Final.
+Para realizar construções em relação a qual setor iriamos atacar, além do problema e da solução, utilizamos o
+[Miro](https://miro.com/app/board/o9J_kr9kilE=/). Os analistas de negócios também utilizaram para a construção das Personas, Business Model Canvas, Pitchs Iniciais e o Roteiro da Apresentação Final.
 
 Link do Miro: https://miro.com/app/board/o9J_kr9kilE=/
 
