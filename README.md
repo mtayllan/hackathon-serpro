@@ -74,7 +74,7 @@ Caso queira, inicialmente, popular o banco de dados, rode `rails db:seed`.
 
 1. Para usar o projeto com docker, é necessário ter instalado o [Docker](https://github.com/docker/docker-ce) e o [Docker compose](https://github.com/docker/compose)
 
-2. Dê checkout na branch *dockerize* (`git checkout dockerize`)
+2. Dê checkout na branch *docker* (`git checkout docker`)
 
 3. Execute os seguintes comandos:
 ```bash
