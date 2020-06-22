@@ -11,9 +11,18 @@ Mind (do inglês, cuidar) é uma **aplicação web** com adaptação para PWA (P
 * [PostgreSQL](https://www.postgresql.org/)
 * [Yarn](https://yarnpkg.com/)
 
+## Templates e layouts
+
+* [Shards](https://designrevision.com/demo/shards/)
+* [SB Admin 2](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
+* Bootstrap
+* Font Awesome
+* Ícones do [Icon Finder](https://www.iconfinder.com/)
+* Imagens do [PixaBay](https://pixabay.com)
+
 ## Bases de dados
 
-Para popular o banco de dados, utlizamos os dados que estão no arquivo `db/seeds.rb`, que puxa um CSV (`lib/assets/Dados.csv`), além da biblioteca chamada *Faker*, que gera dados pseudo-aleatórios.
+Para popular o banco de dados, utlizamos os dados que estão no arquivo [db/seeds.rb](db/seeds.rb), que puxa um CSV ([Dados.csv](lib/assets/Dados.csv)), além da biblioteca chamada *Faker*, que gera dados pseudo-aleatórios.
 O CSV contém o nome e endereços reais de hospitais da cidade de Fortaleza-CE, porém todo o resto das informações são fictícias.
 
 ## Iniciando o projeto
@@ -90,3 +99,4 @@ Heroku: https://mindd.herokuapp.com/organization_users/sign_in
 
 Local: http://localhost:3000/organization_users/sign_in
 
+## Apresentação e recursos visuais
