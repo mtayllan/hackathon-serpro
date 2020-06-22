@@ -15,6 +15,10 @@ Para a montagem da logo usamos o Adobe Photoshop CC. Para a seleção da paleta 
 
 Link da Paleta de Cores: http://paletton.com/#uid=53f0f0kmSQJbHXjhQU3rHMxA+GM
 
+Ícones foram buscados no [IconFinder](https://www.iconfinder.com/) tendo coletado apenas ícones gratuitos.
+
+Imagens foram buscadas no [Pixabay](https://pixabay.com/pt/) tendo coletado apenas imagens gratuitas.
+
 ## Prototipação
 A prototipação foi voltada para a construção das telas de usuário (paciente), relacionada a busca e exibição das unidades de saúde. Além disso, foi feita apenas a prototipação do painel inicial para o administrador das unidades, proporcionando uma atualização rápida das informações relacionadas ao pronto-atendimento. 
 
@@ -118,7 +122,10 @@ Heroku: https://mindd.herokuapp.com/organization_users/sign_in
 
 Local: http://localhost:3000/organization_users/sign_in
 
-## Apresentação e recursos visuais
+## Apresentação
+Link da Apresentação no Youtube: https://youtu.be/DpAy1pU13bs
+
+Link da Landing Page: https://mindd.herokuapp.com/
 
 ## Equipe
 Iury Rosal - Líder, Analista de Negócios e UX
