@@ -9,6 +9,7 @@ class PerformSearch < ApplicationService
   def call
     search = {}
     search[:covid_attendance] = true if @query[:covid].present?
+    search[:kind] = @query[:kinds] if @query[:kinds]
     if @query[:emergency]
       search[:medics] = { on_shift: true }
       search[:medics][:expertises] = { id: @query[:expertises] } if @query[:expertises].present?

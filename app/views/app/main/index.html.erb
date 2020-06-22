@@ -52,7 +52,7 @@
         </div>
         <div class="row align-items-center no-gutters d-none" id="unit-select">
           <div class="col-11">
-            <select name="q[organizations][]" title="Selecione um ou mais tipos de unidade" class="selectpicker-custom" data-style="btn-light" data-width="100%" multiple>
+            <select name="q[kinds][]" title="Selecione um ou mais tipos de unidade" class="selectpicker-custom" data-style="btn-light" data-width="100%" multiple>
               <% Organization.kinds_i18n.each do |kind| %>
                 <option value="<%= kind.first %>"><%= kind.second %></option>
               <% end %>
