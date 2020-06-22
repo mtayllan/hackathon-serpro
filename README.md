@@ -11,7 +11,7 @@ Para realizar construções em relação a qual setor iriamos atacar, além do p
 Link do Miro: https://miro.com/app/board/o9J_kr9kilE=/
 
 ## Identidade Visual
-Para a montagem da logo usamos o Adobe Photoshop CC. Para a seleção da paleta de cores usamos o Paletton. 
+Para a montagem da logo usamos o Adobe Photoshop CC. Para a seleção da paleta de cores usamos o Paletton.
 
 Link da Paleta de Cores: http://paletton.com/#uid=53f0f0kmSQJbHXjhQU3rHMxA+GM
 
@@ -20,12 +20,14 @@ Link da Paleta de Cores: http://paletton.com/#uid=53f0f0kmSQJbHXjhQU3rHMxA+GM
 Imagens foram buscadas no [Pixabay](https://pixabay.com/pt/) tendo coletado apenas imagens gratuitas.
 
 ## Prototipação
-A prototipação foi voltada para a construção das telas de usuário (paciente), relacionada a busca e exibição das unidades de saúde. Além disso, foi feita apenas a prototipação do painel inicial para o administrador das unidades, proporcionando uma atualização rápida das informações relacionadas ao pronto-atendimento. 
+A prototipação foi voltada para a construção das telas de usuário (paciente), relacionada a busca e exibição das unidades de saúde. Além disso, foi feita apenas a prototipação do painel inicial para o administrador das unidades, proporcionando uma atualização rápida das informações relacionadas ao pronto-atendimento.
 
 A prototipação foi de alta fidelidade e utilizamos o [Figma](https://www.figma.com/).
 
-Link da prototipação desenvolvida: 
+Link da prototipação desenvolvida:
 https://www.figma.com/file/AGANQbe8riuWGoYh0EM1dv/Mind?node-id=0%3A1
+
+A modelagem inicial do banco de dados: https://dbdiagram.io/d/5ee7e9359ea313663b3a97ea
 
 ## Tecnologias
 
@@ -47,6 +49,11 @@ https://www.figma.com/file/AGANQbe8riuWGoYh0EM1dv/Mind?node-id=0%3A1
 
 Para popular o banco de dados, utlizamos os dados que estão no arquivo [db/seeds.rb](db/seeds.rb), que puxa um CSV ([Dados.csv](lib/assets/Dados.csv)), além da biblioteca chamada *Faker*, que gera dados pseudo-aleatórios.
 O CSV contém o nome e endereços reais de hospitais da cidade de Fortaleza-CE, porém todo o resto das informações são fictícias.
+
+## APIs
+
+Para localização, utilizamos a api aberta do OpenStreet.
+https://nominatim.openstreetmap.org/
 
 ## Iniciando o projeto
 
