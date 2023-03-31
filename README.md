@@ -2,6 +2,11 @@
 
 # Mind
 
+EN:
+**Mind is a Web Application made in Ruby on Rails for the HACKATHON SERPRO Nº 01/2020, a national competition promoted by Brazilian state owned company [Serpro](https://www.serpro.gov.br/en/about-serpro). The app goal is to present to the user all health providers available nearby and show information about their current capacity and medical specialties, so the user can decide quickly to which hospital or clinic they need to go, specially when travelling.**
+
+**It earned 9th place on the national competition.**
+
 Mind (do inglês, cuidar) é uma **aplicação web** com adaptação para PWA (Progressive Web App) que permite que qualquer pessoa possa encontrar uma unidade de saúde ideal e mais próxima para ser atendido.
 
 ## Construção da Solução
